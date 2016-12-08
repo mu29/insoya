@@ -1,3 +1,5 @@
+import { API_ENTRY } from 'config';
+
 let instance = null;
 
 export default class RestClient {
@@ -22,12 +24,15 @@ export default class RestClient {
   }
 
   send({ url, data, success, error }) {
+    if (data.queryParams) {
+      url += (url.indexOf('?') === -1 ? '?' : '&') + this.queryParams(data.queryParams);
+      delete data.queryParams;
+    }
+
     const params = Object.assign({}, data, { headers: this.headers });
-    fetch(url, params)
+    return fetch(`${API_ENTRY}${url}`, params)
       .then(this.checkStatus)
-      .then(this.parseJSON)
-      .then((res) => { success(res) })
-      .catch((err) => { error(err) });
+      .then(this.parseJSON);
   }
 
   checkStatus(response) {
@@ -42,5 +47,11 @@ export default class RestClient {
 
   parseJSON(response) {
     return response.json()
+  }
+
+  queryParams(params) {
+    return Object.keys(params)
+    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
+    .join('&');
   }
 }
