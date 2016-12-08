@@ -1,0 +1,16 @@
+{
+  "development": {
+    "api_entry": "http://localhost:3000/v1",
+  },
+  "staging": {
+    "api_entry": "http://localhost:3000/v1",
+  },
+  "production": {
+    "api_entry": "http://localhost:3000/v1",
+  },
+  "test": {
+    "message_server_url": "",
+    "api_entry": "",
+    "host": ""
+  }
+}
