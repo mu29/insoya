@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import AppState from 'AppState';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as SessionActions from './modules/Session';
 import Router from './Router';
+import * as PostActions from './modules/Post';
 import {
   StyleSheet,
   Text,
@@ -44,9 +44,9 @@ const styles = StyleSheet.create({
 
 export default connect(
   (store) => ({
-    isLoggedIn: store.Session.token !== '',
+    posts: store.Post.posts,
   }),
   (dispatch) => ({
-    sessionActions: bindActionCreators(SessionActions, dispatch),
+    actions: bindActionCreators(PostActions, dispatch),
   })
 )(Application);
