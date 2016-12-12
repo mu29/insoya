@@ -20,18 +20,18 @@ const styles = StyleSheet.create({
     color: '#999999',
   },
   content: {
-    fontSize: 16,
+    fontSize: 14,
     marginBottom: -8,
   },
 });
 
 export default class CommentItem extends Component {
   render() {
-    const { author, content } = this.props;
+    const { author, content, date } = this.props.comment;
     return (
       <View style={ styles.container }>
         <Text style={ styles.content }>{ content }</Text>
-        <Text style={ styles.author }>{ `${author}` } | 16.12.13 02:16:01</Text>
+        <Text style={ styles.author }>{ `${author} | ${date}` }</Text>
       </View>
     );
   }

@@ -46,13 +46,9 @@ class Home extends Component {
     return (
       <View style={ styles.container }>
         {
-          showing && <View style={ styles.modal }>
-              <ActivityIndicator
-                animating={ true }
-                style={ { height: 80 } }
-                color="#FA5D63"
-                size="large"
-              />
+          showing &&
+          <View style={ styles.modal }>
+            <ActivityIndicator animating={ true } size="large" color="#fa5d63" />
           </View>
         }
         <View style={ visible }>
