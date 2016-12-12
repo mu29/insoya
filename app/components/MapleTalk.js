@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component, PropTypes } from 'react';
 import { ScrollView, View, Text, ListView, ActivityIndicator, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
