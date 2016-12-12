@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 const MENUS = [
   { icon: 'comments', label: '메이플토크', component: MapleTalk },
   { icon: 'users', label: '직업별토크', component: JobTalk },
-  { icon: 'question-circle', label: '질문답변', name: 'qna' },
+  { icon: 'question-circle', label: '질문답변', name: 'QnA' },
   { icon: 'fire', label: '인기 게시물', name: 'popular' },
 ];
 
@@ -37,7 +37,7 @@ class Home extends Component {
   }
 
   render() {
-    const { showing } = this.props;
+    const { showing, route, navigator } = this.props;
     const { index } = this.state;
     const visible = { flex: showing ? 0 : 1 };
     let Component = MENUS[index].component;
@@ -54,7 +54,7 @@ class Home extends Component {
           </View>
         }
         <View style={ visible }>
-          <Component />
+          <Component route={ route } navigator={ navigator }/>
         </View>
         <Menu menus={ MENUS } index={ index } onSelectMenu={ this.onSelectMenu } />
       </View>
