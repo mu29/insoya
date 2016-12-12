@@ -1,92 +1,13 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
-import {
-  Platform,
-  BackAndroid,
-  Navigator,
-  StyleSheet,
-  Text,
-} from 'react-native';
+import { Platform, Navigator, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import MapleTalk from './components/MapleTalk';
+import Menu from './components/Menu';
 
-class Router extends Component {
-  constructor() {
-    super();
-    this._handlers = [];
-  }
-
-  componentDidMount() {
-    BackAndroid.addEventListener('hardwareBackPress', this.handleBackButton);
-  }
-
-  componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress', this.handleBackButton);
-  }
-
-  getChildContext() {
-    return {
-      addBackButtonListener: this.addBackButtonListener,
-      removeBackButtonListener: this.removeBackButtonListener,
-    };
-  }
-
-  addBackButtonListener(listener) {
-    this._handlers.push(listener);
-  }
-
-  removeBackButtonListener(listener) {
-    this._handlers = this._handlers.filter((handler) => handler !== listener);
-  }
-
-  handleBackButton() {
-    for (let i = this._handlers.length - 1; i >= 0; i--) {
-      if (this._handlers[i]()) {
-        return true;
-      }
-    }
-
-    const { navigator } = this.refs;
-    if (navigator && navigator.getCurrentRoutes().length > 1) {
-      navigator.pop();
-      return true;
-    }
-
-    return false;
-  }
-
-  render() {
-    return(
-      <Navigator
-        ref="navigator"
-        style={ styles.container }
-        configureScene={
-          (route) => {
-            if (Platform.OS === 'android') {
-              return Navigator.SceneConfigs.FloatFromBottomAndroid;
-            } else {
-              return Navigator.SceneConfigs.FloatFromRight;
-            }
-          }
-        }
-        initialRoute={ {} }
-        renderScene={ this.renderScene }
-      />
-    );
-  }
-
-  renderScene(route, navigator) {
-    return (
-      <Text>
-        Welcome to React Native!
-      </Text>
-    );
-  }
-}
-
-Router.childContextTypes = {
-  addBackButtonListener: PropTypes.func,
-  removeBackButtonListener: PropTypes.func,
+const ROUTES = {
+  mapletalk: MapleTalk
 };
 
 const styles = StyleSheet.create({
@@ -94,6 +15,36 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+class Router extends Component {
+  render() {
+    return(
+      <View style={ styles.container }>
+        <Navigator
+          ref="navigator"
+          style={ styles.container }
+          configureScene={
+            (route) => {
+              if (Platform.OS === 'android') {
+                return Navigator.SceneConfigs.FloatFromBottomAndroid;
+              } else {
+                return Navigator.SceneConfigs.FloatFromRight;
+              }
+            }
+          }
+          initialRoute={ { name: 'mapletalk' } }
+          renderScene={ this.renderScene }
+        />
+        <Menu />
+      </View>
+    );
+  }
+
+  renderScene(route, navigator) {
+    let Component = ROUTES[route.name];
+    return <Component route={route} navigator={navigator} />;
+  }
+}
 
 export default connect(
   (store) => ({
