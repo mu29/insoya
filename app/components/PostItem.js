@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,21 +35,37 @@ const styles = StyleSheet.create({
 });
 
 export default class PostItem extends Component {
+  constructor() {
+    super();
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(url) {
+    this.props.onClick(url);
+  }
+
   render() {
     const { title, url, comment, author, date, count, category } = this.props;
     return (
       <View style={ styles.container }>
-        <Text style={ styles.title }>
-          { `${title}${comment !== '' && ` [${comment}]` || ''}` }
-        </Text>
-        <View style={ styles.bottomContainer }>
-          <Text style={ styles.subtitle }>
-            { `${author} | ${date} | 조회 ${count}` }
-          </Text>
-          <Text style={ styles.category }>
-            { category }
-          </Text>
-        </View>
+        <TouchableHighlight
+          underlayColor={ 'transparent' }
+          onPress={ () => this.onClick(url) }
+        >
+          <View>
+            <Text style={ styles.title }>
+              { `${title}${comment !== '' && ` [${comment}]` || ''}` }
+            </Text>
+            <View style={ styles.bottomContainer }>
+              <Text style={ styles.subtitle }>
+                { `${author} | ${date} | 조회 ${count}` }
+              </Text>
+              <Text style={ styles.category }>
+                { category }
+              </Text>
+            </View>
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }

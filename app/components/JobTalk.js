@@ -34,12 +34,17 @@ class JobTalk extends Component {
     this.state = { page: parseInt(posts.filter(p => p.menu === JOB_TALK).length / 25) + 1 };
     this.paginate = this.paginate.bind(this);
     this.renderHeader = this.renderHeader.bind(this);
+    this.onClickItem = this.onClickItem.bind(this);
   }
 
   componentDidMount() {
     const { posts, fetchPostList, showProgress, showBackgroundProgress } = this.props;
     posts.length < 25 ? showProgress() : showBackgroundProgress();
     fetchPostList(JOB_TALK_URL, JOB_TALK);
+  }
+
+  onClickItem(url) {
+    this.props.navigator.push({ name: 'view', passProps: { url } })
   }
 
   paginate() {
@@ -68,7 +73,7 @@ class JobTalk extends Component {
           pageSize={ 10 }
           initialListSize={ 20 }
           dataSource={ dataSource }
-          renderRow={ (data) => <PostItem { ...data } /> }
+          renderRow={ (data) => <PostItem { ...data } onClick={ this.onClickItem } /> }
           renderHeader={ () => this.renderHeader() }
           renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" /> }
           onEndReached={ () => this.paginate() }
