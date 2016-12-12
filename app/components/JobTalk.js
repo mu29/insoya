@@ -47,7 +47,7 @@ class JobTalk extends Component {
 
   paginate() {
     const { page } = this.state;
-    this.props.fetchPostList(`${MAPLE_TALK_URL}&page=${page + 1}`, JOB_TALK);
+    this.props.fetchPostList(`${JOB_TALK_URL}&page=${page + 1}`, JOB_TALK);
     this.setState({ page: page + 1 });
   }
 
