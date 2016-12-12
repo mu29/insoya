@@ -6,7 +6,7 @@ export default class PostApi {
       url: '/list',
       data: {
         method: 'POST',
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: url }),
       },
     });
   }
@@ -16,7 +16,7 @@ export default class PostApi {
       url: '/content',
       data: {
         method: 'POST',
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: url }),
       },
     });
   }

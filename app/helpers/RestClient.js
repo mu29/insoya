@@ -14,6 +14,7 @@ export default class RestClient {
     this.headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'x-api-key': 'JyY5197EJK6hf1qKjnUk65CkAQv6gsBM6Migvizr',
     };
     this.checkStatus = this.checkStatus.bind(this);
     this.parseJSON = this.parseJSON.bind(this);

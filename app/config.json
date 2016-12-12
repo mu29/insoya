@@ -6,7 +6,7 @@
     "api_entry": "http://localhost:3000/v1",
   },
   "production": {
-    "api_entry": "http://localhost:3000/v1",
+    "api_entry": "https://ojoxz3jrs1.execute-api.ap-northeast-1.amazonaws.com/test",
   },
   "test": {
     "message_server_url": "",
