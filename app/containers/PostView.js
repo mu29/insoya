@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { Platform, View, Text, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { readPost } from '../modules/Post';
 import { showProgress } from '../modules/Progress';
@@ -9,7 +9,8 @@ import Navigator from '../components/Navigator';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: Platform.OS === 'android' ? 0 : 20,
+    backgroundColor: '#FFF'
   },
   contentWrapper: {
     padding: 12,
@@ -61,7 +62,7 @@ class PostView extends Component {
               <View style={ styles.line } />
             </View>
             {
-              post.commentList.map((comment, i) => (
+              post.commentList && post.commentList.map((comment, i) => (
                 <CommentItem key={ i } author={ comment.author } content={ comment.content } />
               ))
             }

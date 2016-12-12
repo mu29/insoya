@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Modal, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
+import { Platform, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
 import MapleTalk from '../components/MapleTalk';
 import JobTalk from '../components/JobTalk';
 import Menu from '../components/Menu';
@@ -8,7 +8,8 @@ import Menu from '../components/Menu';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: Platform.OS === 'android' ? 0 : 20,
+    backgroundColor: '#FFF',
   },
   modal: {
     flex: 1,
@@ -49,6 +50,7 @@ class Home extends Component {
               <ActivityIndicator
                 animating={ true }
                 style={ { height: 80 } }
+                color="#FA5D63"
                 size="large"
               />
           </View>
