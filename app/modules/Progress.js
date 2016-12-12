@@ -17,13 +17,13 @@ export default function (state = defaultState, action) {
 }
 
 export function showProgress() {
-  return (dispatch) => {
-    dispatch({ type: SHOW_PROGRESS });
+  return {
+    type: SHOW_PROGRESS,
   };
 }
 
 export function hideProgress() {
-  return (dispatch) => {
-    dispatch({ type: HIDE_PROGRESS });
+  return {
+    type: HIDE_PROGRESS,
   };
 }

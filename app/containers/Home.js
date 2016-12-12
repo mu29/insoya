@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MapleTalk from '../components/MapleTalk';
 import JobTalk from '../components/JobTalk';
 import Menu from '../components/Menu';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +10,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   component: {
-    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
   },
 });
 
