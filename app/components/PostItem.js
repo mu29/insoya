@@ -7,9 +7,13 @@ const styles = StyleSheet.create({
     padding: 12,
     flexDirection: 'column',
     borderColor: '#E0E0E0',
-    borderWidth: 1,
+    borderWidth: 0.5,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
     borderRadius: 2,
     margin: 4,
+    marginLeft: 12,
+    marginRight: 12,
   },
   bottomContainer: {
     flex: 1,
@@ -17,7 +21,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    marginBottom: 2,
+    marginBottom: 4,
   },
   subtitle: {
     flex: 1,
