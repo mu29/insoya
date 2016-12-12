@@ -13,9 +13,11 @@ export default function (state = defaultState, action) {
   switch (action.type) {
     case POST_LIST_SUCCEEDED:
       let posts = [ ...state.posts, ...action.posts.map(p => ({ ...p, menu: action.menu })) ];
+      posts = posts.filter((obj, pos, arr) => (arr.map(mapObj => mapObj['title']).indexOf(obj['title']) === pos))
+                  .sort((prev, next) => Number(next.index) - Number(prev.index));
       return {
         ...state,
-        posts: posts.filter((obj, pos, arr) => (arr.map(mapObj => mapObj['title']).indexOf(obj['title']) === pos)),
+        posts,
       };
     case POST_SUCCEEDED:
       return { ...state, post: action.post };
