@@ -5,24 +5,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  content: {
-    flex: 1,
     flexDirection: 'column',
   },
-  comment: {
-    textAlign: 'center',
-    fontSize: 16,
-    color: '#999999',
-    padding: 12,
+  bottomContainer: {
+    flex: 1,
+    flexDirection: 'row',
   },
   title: {
     fontSize: 16,
     marginBottom: 2,
   },
   subtitle: {
+    flex: 1,
+    fontSize: 12,
+    color: '#999999',
+  },
+  category: {
     fontSize: 12,
     color: '#999999',
   },
@@ -30,15 +28,18 @@ const styles = StyleSheet.create({
 
 export default class PostItem extends Component {
   render() {
-    const { title, url, comment, author, count } = this.props;
+    const { title, url, comment, author, date, count, category } = this.props;
     return (
       <View style={ styles.container }>
-        <View style={ styles.content}>
-          <Text style={ styles.title }>
-            { `${title}${comment !== '' && ` [${comment}]` || ''}` }
-          </Text>
+        <Text style={ styles.title }>
+          { `${title}${comment !== '' && ` [${comment}]` || ''}` }
+        </Text>
+        <View style={ styles.bottomContainer }>
           <Text style={ styles.subtitle }>
-            { `${author} | 조회 ${count}` }
+            { `${author} | ${date} | 조회 ${count}` }
+          </Text>
+          <Text style={ styles.category }>
+            { category }
           </Text>
         </View>
       </View>
