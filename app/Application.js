@@ -4,10 +4,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { AppState, Platform, Navigator, StyleSheet } from 'react-native';
 import configureStore from './store/configureStore';
-import Main from './components/Main';
+import MapleTalk from './components/MapleTalk';
  
 const ROUTES = {
-  main: Main
+  mapletalk: MapleTalk
 };
 
 const styles = StyleSheet.create({
@@ -67,7 +67,7 @@ export default class Application extends React.Component {
               }
             }
           }
-          initialRoute={ { name: 'main' } }
+          initialRoute={ { name: 'mapletalk' } }
           renderScene={ this.renderScene }
         />
       </Provider>

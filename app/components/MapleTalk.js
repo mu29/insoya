@@ -21,14 +21,19 @@ const styles = StyleSheet.create({
   },
 });
 
-class Main extends Component {
+const MAPLE_TALK_URL = 'http://www.insoya.com/bbs/zboard.php?id=talkmaple';
+
+class MapleTalk extends Component {
   constructor() {
     super();
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      page: 0,
+    };
   }
 
   componentDidMount() {
-    this.props.fetchPostList('http://www.insoya.com/bbs/zboard.php?id=talkmaple');
+    this.props.fetchPostList(MAPLE_TALK_URL);
   }
 
   render() {
@@ -47,19 +52,9 @@ class Main extends Component {
   }
 }
 
-Main.defaultProps = {
-  posts: [  {
-    "title": "??? : 됐고 나랑 드라이브나 할래?",
-    "url": "zboard.php?id=talkmaple&divpage=18&no=1170367",
-    "comment": "2",
-    "author": "지풀",
-    "count": "194"
-  },],
-};
-
 export default connect(
   ({ Post }) => ({
     posts: Post.posts,
   }),
   { fetchPostList },
-)(Main);
+)(MapleTalk);
