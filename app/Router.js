@@ -97,6 +97,5 @@ const styles = StyleSheet.create({
 
 export default connect(
   (store) => ({
-    isLoggedIn: store.Session.token !== '',
   })
 )(Router);

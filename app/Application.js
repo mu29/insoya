@@ -1,18 +1,34 @@
 'use strict';
 
-import React, { Component } from 'react';
-import AppState from 'AppState';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Router from './Router';
-import * as PostActions from './modules/Post';
+import React from 'react';
+import { Provider } from 'react-redux';
 import {
+  AppState,
+  Platform,
+  Navigator,
   StyleSheet,
-  Text,
-  View
 } from 'react-native';
+import configureStore from './store/configureStore';
+import Main from './components/Main';
+ 
+const ROUTES = {
+  main: Main
+};
 
-class Application extends Component {
+export default class Application extends React.Component {
+  state: {
+    isLoading: boolean;
+    store: any;
+  };
+
+  constructor() {
+    super();
+    this.state = {
+      isLoading: true,
+      store: configureStore(() => this.setState({ isLoading: false })),
+    };
+  }
+
   componentDidMount() {
     AppState.addEventListener('change', this.handleAppStateChange);
   }
@@ -27,11 +43,33 @@ class Application extends Component {
     }
   }
 
+  renderScene(route, navigator) {
+    let Component = ROUTES[route.name];
+    return <Component route={route} navigator={navigator} />;
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Router />
-      </View>
+    if (this.state.isLoading) {
+      return null;
+    }
+    return(
+      <Provider store={ this.state.store }>
+        <Navigator
+          ref="navigator"
+          style={ styles.container }
+          configureScene={
+            (route) => {
+              if (Platform.OS === 'android') {
+                return Navigator.SceneConfigs.FloatFromBottomAndroid;
+              } else {
+                return Navigator.SceneConfigs.FloatFromRight;
+              }
+            }
+          }
+          initialRoute={ { name: 'main' } }
+          renderScene={ this.renderScene }
+        />
+      </Provider>
     );
   }
 }
@@ -41,12 +79,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default connect(
-  (store) => ({
-    posts: store.Post.posts,
-  }),
-  (dispatch) => ({
-    actions: bindActionCreators(PostActions, dispatch),
-  })
-)(Application);
