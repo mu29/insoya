@@ -1,6 +1,6 @@
 'use strict';
 
 import { AppRegistry } from 'react-native';
-import Application from './app/setup';
+import Application from './app/Application';
 
 AppRegistry.registerComponent('insoya', () => Application);
