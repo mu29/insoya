@@ -14,11 +14,6 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
   },
-  separator: {
-    flex: 1,
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
-  },
 });
 
 const MAPLE_TALK_URL = 'http://www.insoya.com/bbs/zboard.php?id=talkmaple';
@@ -45,7 +40,6 @@ class MapleTalk extends Component {
           style={ styles.list }
           dataSource={ dataSource }
           renderRow={ (data) => <PostItem { ...data } /> }
-          renderSeparator={ (sectionId, rowId) => <View key={ rowId } style={ styles.separator } /> }
         />
       </View>
     );
