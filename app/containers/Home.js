@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Modal, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
 import MapleTalk from '../components/MapleTalk';
 import JobTalk from '../components/JobTalk';
 import Menu from '../components/Menu';
-import { View, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 20,
   },
-  component: {
-    justifyContent: 'center',
+  modal: {
+    flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
+    justifyContent: 'center'
   },
 });
 
@@ -27,7 +25,7 @@ const MENUS = [
   { icon: 'fire', label: '인기 게시물', name: 'popular' },
 ];
 
-export default class Home extends Component {
+class Home extends Component {
   constructor() {
     super();
     this.state = { index: 0 };
@@ -39,14 +37,34 @@ export default class Home extends Component {
   }
 
   render() {
+    const { showing } = this.props;
     const { index } = this.state;
+    const visible = { flex: showing ? 0 : 1 };
     let Component = MENUS[index].component;
 
     return (
       <View style={ styles.container }>
-        <Component />
+        {
+          showing && <View style={ styles.modal }>
+              <ActivityIndicator
+                animating={ true }
+                style={ { height: 80 } }
+                size="large"
+              />
+          </View>
+        }
+        <View style={ visible }>
+          <Component />
+        </View>
         <Menu menus={ MENUS } index={ index } onSelectMenu={ this.onSelectMenu } />
       </View>
     );
   }
 }
+
+export default connect(
+  ({ Progress }) => ({
+    showing: Progress.showing,
+  }),
+  null,
+)(Home);
