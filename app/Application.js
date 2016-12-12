@@ -2,18 +2,19 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import {
-  AppState,
-  Platform,
-  Navigator,
-  StyleSheet,
-} from 'react-native';
+import { AppState, Platform, Navigator, StyleSheet } from 'react-native';
 import configureStore from './store/configureStore';
 import Main from './components/Main';
  
 const ROUTES = {
   main: Main
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default class Application extends React.Component {
   state: {
@@ -73,9 +74,3 @@ export default class Application extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
