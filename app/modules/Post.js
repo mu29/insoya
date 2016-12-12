@@ -50,3 +50,29 @@ export function fetchPostList(url, menu) {
       .catch(() => dispatch(fetchPostListFail()));
   };
 }
+
+function readPostSuccess(post) {
+  return (dispatch) => {
+    dispatch(hideProgress());
+    dispatch({
+      type: POST_SUCCEEDED,
+      post,
+    });
+  }
+}
+
+function readPostFail() {
+  return (dispatch) => {
+    dispatch(hideProgress());
+  }
+}
+
+export function readPost(url) {
+  return (dispatch) => {
+    PostApi.readPost(url)
+      .then((res) => {
+        dispatch(readPostSuccess(res));
+      })
+      .catch(() => dispatch(readPostFail()));
+  };
+}

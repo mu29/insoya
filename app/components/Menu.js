@@ -48,8 +48,8 @@ export default class Menu extends Component {
                   onPress={ () => this.onSelectMenu(i) }
                 >
                   <View style={ { alignItems: 'center' } }>
-                  <Icon name={ menu.icon } style={ iconStyle } size={ 20 } />
-                  <Text style={ textStyle }>{ menu.label }</Text>
+                    <Icon name={ menu.icon } style={ iconStyle } size={ 20 } />
+                    <Text style={ textStyle }>{ menu.label }</Text>
                   </View>
                 </TouchableHighlight>
               </View>

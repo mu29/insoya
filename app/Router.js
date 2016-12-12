@@ -4,9 +4,11 @@ import React, { Component, PropTypes } from 'react';
 import { Platform, Navigator, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import Home from './containers/Home';
+import PostView from './containers/PostView';
 
 const ROUTES = {
   home: Home,
+  view: PostView,
 };
 
 const styles = StyleSheet.create({
@@ -37,8 +39,9 @@ class Router extends Component {
   }
 
   renderScene(route, navigator) {
+    console.log(route);
     let Component = ROUTES[route.name];
-    return <Component route={ route } navigator={ navigator } />;
+    return <Component { ...route.passProps } route={ route } navigator={ navigator } />;
   }
 }
 
