@@ -1,4 +1,4 @@
-import RestClient from 'helpers/RestClient';
+import RestClient from '../helpers/RestClient';
 
 export default class PostApi {
   static fetchPostList(url) {

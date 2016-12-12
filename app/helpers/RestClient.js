@@ -1,4 +1,4 @@
-import { API_ENTRY } from 'config';
+import { API_ENTRY } from '../config';
 
 let instance = null;
 

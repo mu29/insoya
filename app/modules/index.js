@@ -1,1 +1,1 @@
-export { default as Session } from './Session';
+export { default as Post } from './Post';
