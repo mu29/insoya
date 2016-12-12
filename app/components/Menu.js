@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
@@ -21,23 +21,18 @@ const styles = StyleSheet.create({
   }
 });
 
-const menus = [
-  { icon: 'comments', label: '메이플토크' },
-  { icon: 'users', label: '직업별토크' },
-  { icon: 'question-circle', label: '질문답변' },
-  { icon: 'fire', label: '인기 게시물' },
-];
-
 export default class Menu extends Component {
   constructor() {
     super();
-    this.state = {
-      index: 0,
-    };
+    this.onSelectMenu = this.onSelectMenu.bind(this);
+  }
+
+  onSelectMenu(index) {
+    this.props.onSelectMenu(index);
   }
 
   render() {
-    const { index } = this.state;
+    const { menus, index } = this.props;
     return (
       <View style={ styles.container }>
         {
@@ -48,8 +43,15 @@ export default class Menu extends Component {
 
             return (
               <View style={ styles.content } key={ i }>
-                <Icon name={ menu.icon } style={ iconStyle } size={ 20 } />
-                <Text style={ textStyle }>{ menu.label }</Text>
+                <TouchableHighlight
+                  underlayColor={ 'transparent' }
+                  onPress={ () => this.onSelectMenu(i) }
+                >
+                  <View style={ { alignItems: 'center' } }>
+                  <Icon name={ menu.icon } style={ iconStyle } size={ 20 } />
+                  <Text style={ textStyle }>{ menu.label }</Text>
+                  </View>
+                </TouchableHighlight>
               </View>
             )
           })

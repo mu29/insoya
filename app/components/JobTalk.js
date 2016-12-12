@@ -9,15 +9,9 @@ import PostItem from './PostItem';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
   },
   list: {
     flex: 1,
-  },
-  separator: {
-    flex: 1,
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
   },
 });
 
@@ -45,7 +39,6 @@ class JobTalk extends Component {
           style={ styles.list }
           dataSource={ dataSource }
           renderRow={ (data) => <PostItem { ...data } /> }
-          renderSeparator={ (sectionId, rowId) => <View key={ rowId } style={ styles.separator } /> }
         />
       </View>
     );
