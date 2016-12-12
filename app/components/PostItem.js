@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 12,
     flexDirection: 'column',
+    borderColor: '#E0E0E0',
+    borderWidth: 1,
+    borderRadius: 2,
+    margin: 4,
   },
   bottomContainer: {
     flex: 1,
