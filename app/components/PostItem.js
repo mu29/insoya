@@ -60,7 +60,7 @@ export default class PostItem extends Component {
             </Text>
             <View style={ styles.bottomContainer }>
               <Text style={ styles.subtitle }>
-                { `${author} | ${date} | 조회 ${count}` }
+                { `${author} | ${date}${count !== '' && `| 조회 ${count}` || ''}` }
               </Text>
               <Text style={ styles.category }>
                 { category }
