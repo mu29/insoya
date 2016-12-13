@@ -35,7 +35,7 @@ class MapleTalk extends Component {
     this.onClickItem = this.onClickItem.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { posts, fetchPostList, showProgress, showBackgroundProgress } = this.props;
     posts.length < 20 ? showProgress() : showBackgroundProgress();
     fetchPostList(MAPLE_TALK_URL, MAPLE_TALK);
@@ -77,6 +77,7 @@ class MapleTalk extends Component {
           onEndReached={ () => this.paginate() }
           onEndReachedThreshold={ 100 }
           enableEmptySections={ true }
+          removeClippedSubviews={ false }
         />
       </View>
     );

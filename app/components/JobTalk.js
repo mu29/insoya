@@ -35,7 +35,7 @@ class JobTalk extends Component {
     this.onClickItem = this.onClickItem.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { posts, fetchPostList, showProgress, showBackgroundProgress } = this.props;
     posts.length < 25 ? showProgress() : showBackgroundProgress();
     fetchPostList(JOB_TALK_URL, JOB_TALK);
@@ -77,6 +77,7 @@ class JobTalk extends Component {
           onEndReached={ () => this.paginate() }
           onEndReachedThreshold={ 100 }
           enableEmptySections={ true }
+          removeClippedSubviews={ false }
         />
       </View>
     );
