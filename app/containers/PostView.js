@@ -62,6 +62,7 @@ class PostView extends Component {
             animationType={ "none" }
             transparent={ false }
             visible={ showing }
+            onRequestClose={() => {}}
           >
             <View style={ styles.modal }>
               <ActivityIndicator animating={ true } size="large" color="#fa5d63" />
