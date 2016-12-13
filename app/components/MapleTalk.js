@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { ScrollView, View, Text, ListView, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, ListView, ActivityIndicator, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchPostList } from '../modules/Post';
 import { showProgress, showBackgroundProgress } from '../modules/Progress';

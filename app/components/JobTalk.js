@@ -57,7 +57,7 @@ class JobTalk extends Component {
     return (
       <View>
         <Text style={ styles.title }>직업별 토크</Text>
-        { progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63" /> }
+        { progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
       </View>
     );
   }
@@ -76,7 +76,7 @@ class JobTalk extends Component {
           dataSource={ dataSource }
           renderRow={ (data) => <PostItem { ...data } onClick={ this.onClickItem } /> }
           renderHeader={ () => this.renderHeader() }
-          renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63" /> }
+          renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
           onEndReached={ () => this.paginate() }
           onEndReachedThreshold={ 100 }
           enableEmptySections={ true }
