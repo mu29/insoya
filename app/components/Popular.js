@@ -57,7 +57,7 @@ class Popular extends Component {
     return (
       <View>
         <Text style={ styles.title }>인기 게시물</Text>
-        { progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" /> }
+        { progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
       </View>
     );
   }
@@ -76,7 +76,7 @@ class Popular extends Component {
           dataSource={ dataSource }
           renderRow={ (data) => <PostItem { ...data } onClick={ this.onClickItem } /> }
           renderHeader={ () => this.renderHeader() }
-          renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" /> }
+          renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
           onEndReached={ () => this.paginate() }
           onEndReachedThreshold={ 100 }
           enableEmptySections={ true }

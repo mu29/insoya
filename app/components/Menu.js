@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   icon: {
     color: '#898989',
     marginBottom: 4
-  }
+  },
 });
 
 export default class Menu extends Component {
