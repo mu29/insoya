@@ -69,7 +69,7 @@ class JobTalk extends Component {
         <ListView
           style={ styles.list }
           pageSize={ 10 }
-          initialListSize={ 20 }
+          initialListSize={ 25 }
           dataSource={ dataSource }
           renderRow={ (data) => <PostItem { ...data } onClick={ this.onClickItem } /> }
           renderHeader={ () => this.renderHeader() }

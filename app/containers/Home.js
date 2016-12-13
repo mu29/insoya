@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Platform.OS === 'android' ? 0 : 20,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FAFAFA',
   },
   modal: {
     flex: 1,

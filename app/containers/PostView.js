@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
     marginBottom: -12,
   },
+  commentWarpper: {
+    marginTop: -8,
+    paddingTop: 8,
+    backgroundColor: '#FAFAFA',
+  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -78,11 +83,13 @@ class PostView extends Component {
               <Text>{ post.content }</Text>
               <View style={ styles.line } />
             </View>
-            {
-              post.commentList && post.commentList.map((comment, i) => (
-                <CommentItem key={ i } comment={ comment } />
-              ))
-            }
+            <View style={ styles.commentWarpper }>
+              {
+                post.commentList && post.commentList.map((comment, i) => (
+                  <CommentItem key={ i } comment={ comment } />
+                ))
+              }
+            </View>
           </View>
         </ScrollView>
       </View>

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     margin: 4,
     marginLeft: 12,
     marginRight: 12,
+    backgroundColor: '#FFF',
   },
   author: {
     fontSize: 12,
