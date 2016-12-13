@@ -10,12 +10,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Platform.OS === 'android' ? 0 : 20,
-    backgroundColor: '#FFF'
+    backgroundColor: '#FAFAFA'
   },
   contentWrapper: {
     padding: 12,
     paddingBottom: 0,
     marginBottom: -12,
+    backgroundColor: '#FFF'
   },
   commentWarpper: {
     marginTop: -8,
