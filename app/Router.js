@@ -37,7 +37,6 @@ class Router extends Component {
   }
 
   renderScene(route, navigator) {
-    console.log(route);
     let Component = ROUTES[route.name];
     return <Component { ...route.passProps } route={ route } navigator={ navigator } />;
   }

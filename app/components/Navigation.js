@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Navigator extends Component {
+export default class Navigation extends Component {
   constructor() {
     super();
     this.onClick = this.onClick.bind(this);

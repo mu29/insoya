@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { readPost } from '../modules/Post';
 import { showProgress } from '../modules/Progress';
 import CommentItem from '../components/CommentItem';
-import Navigator from '../components/Navigator';
+import Navigation from '../components/Navigation';
 
 const styles = StyleSheet.create({
   container: {
@@ -55,7 +55,7 @@ class PostView extends Component {
     const { showing, post, route, navigator } = this.props;
     return (
       <View style={ styles.container }>
-        <Navigator route={ route } navigator={ navigator } />
+        <Navigation route={ route } navigator={ navigator } />
         {
           showing &&
           <Modal
