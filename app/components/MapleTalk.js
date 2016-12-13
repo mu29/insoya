@@ -30,7 +30,7 @@ class MapleTalk extends Component {
   constructor({ posts }) {
     super();
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = { page: parseInt(posts.filter(p => p.menu === MAPLE_TALK).length / 20) + 1 };
+    this.state = { page: 0 };
     this.paginate = this.paginate.bind(this);
     this.renderHeader = this.renderHeader.bind(this);
     this.onClickItem = this.onClickItem.bind(this);
@@ -63,7 +63,9 @@ class MapleTalk extends Component {
   }
 
   render() {
-    const dataSource = this.ds.cloneWithRows(this.props.posts.filter(p => p.menu === MAPLE_TALK));
+    const { posts } = this.props;
+    const { page } = this.state;
+    const dataSource = this.ds.cloneWithRows(posts.filter(p => p.menu === MAPLE_TALK).slice(0, 20 * (page + 1)));
 
     return (
       <View style={ styles.container }>
