@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
   },
   title: {
+    color: '#000',
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 8,
@@ -30,6 +31,9 @@ const styles = StyleSheet.create({
   author: {
     fontSize: 14,
     color: '#999999',
+  },
+  content: {
+    color: '#000',
   },
   line: {
     marginTop: 16,
@@ -80,7 +84,7 @@ class PostView extends Component {
               <Text style={ styles.title }>{ post.title }</Text>
               <Text style={ styles.author }>{ `${post.author} | ${post.date} | 조회 ${post.count}` }</Text>
               <View style={ styles.line } />
-              <Text>{ post.content }</Text>
+              <Text style={ styles.content }>{ post.content }</Text>
               <View style={ styles.line } />
             </View>
             <View style={ styles.commentWarpper }>

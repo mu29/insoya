@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
+    color: '#000',
     padding: 12,
     marginTop: 12,
     marginLeft: 8,

@@ -21,8 +21,9 @@ const styles = StyleSheet.create({
     color: '#999999',
   },
   content: {
+    color: '#000',
     fontSize: 14,
-    marginBottom: -8,
+    marginBottom: -4,
   },
 });
 
