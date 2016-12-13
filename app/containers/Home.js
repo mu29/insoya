@@ -10,7 +10,7 @@ import Menu from '../components/Menu';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Platform.OS === 'android' ? 0 : 20,
+    paddingTop: Platform.OS === 'android' ? 0 : 20,
     backgroundColor: '#FAFAFA',
   },
   modal: {

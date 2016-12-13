@@ -6,14 +6,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: '#FFF',
-    borderTopColor: '#E5E5E5',
+    borderTopColor: '#D0D0D0',
     borderTopWidth: 0.5,
   },
   content: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    padding: 8,
+    padding: 6,
   },
   icon: {
     color: '#898989',
@@ -39,7 +39,7 @@ export default class Menu extends Component {
           menus.map((menu, i) => {
             const selected = i === index;
             const iconStyle = Object.assign({ marginBottom: 4 }, { color: selected ? '#FA5D63' : '#898989' });
-            const textStyle = Object.assign({ fontSize: 10 }, { color: selected ? '#FA5D63' : '#898989' });
+            const textStyle = Object.assign({ fontSize: 9 }, { color: selected ? '#FA5D63' : '#898989' });
 
             return (
               <View style={ styles.content } key={ i }>
