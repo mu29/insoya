@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Platform, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
 import MapleTalk from '../components/MapleTalk';
 import JobTalk from '../components/JobTalk';
+import Popular from '../components/Popular';
+import Info from '../components/Info';
 import Menu from '../components/Menu';
 
 const styles = StyleSheet.create({
@@ -22,8 +24,8 @@ const styles = StyleSheet.create({
 const MENUS = [
   { icon: 'comments', label: '메이플토크', component: MapleTalk },
   { icon: 'users', label: '직업별토크', component: JobTalk },
-  { icon: 'question-circle', label: '질문답변', name: 'QnA' },
-  { icon: 'fire', label: '인기 게시물', name: 'popular' },
+  { icon: 'fire', label: '인기 게시물', component: Popular },
+  { icon: 'archive', label: '정보', component: Info },
 ];
 
 class Home extends Component {
