@@ -115,7 +115,11 @@ class PostView extends Component {
           onRequestClose={ () => {} }
         >
           <Image style={ styles.fullImage } source={ { uri: imageUrl } }>
-            <TouchableHighlight style={ styles.modal } onPress={ () => { this.setState({ imageUrl: '' }) } }>
+            <TouchableHighlight
+              style={ styles.modal }
+              underlayColor={ 'transparent' }
+              onPress={ () => { this.setState({ imageUrl: '' }) } }
+            >
               <View style={ styles.modal }/>
             </TouchableHighlight>
           </Image>
