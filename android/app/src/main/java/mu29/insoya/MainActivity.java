@@ -1,4 +1,4 @@
-package com.insoya;
+package mu29.insoya;
 
 import com.facebook.react.ReactActivity;
 

@@ -1,4 +1,4 @@
-package com.insoya;
+package mu29.insoya;
 
 import android.app.Application;
 import android.util.Log;

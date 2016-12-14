@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, Modal, ActivityIndicator, View, Text, Image, TouchableHighlight, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import { AdMobBanner } from 'react-native-admob'
 import { readPost } from '../modules/Post';
 import { showProgress } from '../modules/Progress';
 import CommentItem from '../components/CommentItem';
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
   },
   contentWrapper: {
-    padding: 12,
+    padding: 16,
     backgroundColor: '#FFF'
   },
   commentWarpper: {
@@ -70,6 +71,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  admobWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  admob: {
+    width: 320,
+    height: 50,
+  },
 });
 
 const BASE_URL = 'http://www.insoya.com/bbs';
@@ -77,8 +88,9 @@ const BASE_URL = 'http://www.insoya.com/bbs';
 class PostView extends Component {
   constructor() {
     super();
-    this.state = { imageUrl: '' };
+    this.state = { showAd: true, imageUrl: '' };
     this.showImage = this.showImage.bind(this);
+    this.hideAd = this.hideAd.bind(this);
   }
 
   componentDidMount() {
@@ -91,10 +103,13 @@ class PostView extends Component {
     this.setState({ imageUrl });
   }
 
+  hideAd() {
+    this.setState({ showAd: false });
+  }
+
   render() {
     const { showing, post, route, navigator } = this.props;
-    const { imageUrl } = this.state;
-    console.log(this.state);
+    const { showAd, imageUrl } = this.state;
     return (
       <View style={ styles.container }>
         <Navigation route={ route } navigator={ navigator } />
@@ -142,6 +157,19 @@ class PostView extends Component {
                 ))
               }
               <Text style={ styles.content }>{ post.content }</Text>
+              {
+                showAd && [
+                  <View key="0" style={ styles.line } />,
+                  <View key="1" style={ styles.admobWrapper }>
+                    <AdMobBanner
+                      style={ styles.admob }
+                      bannerSize="banner"
+                      adUnitID={ Platform.OS === 'android' ? 'ca-app-pub-6596802864096567/9188079532' : 'ca-app-pub-6596802864096567/5955411536' }
+                      didFailToReceiveAdWithError={ () => this.hideAd() }
+                    />
+                  </View>,
+                ]
+              }
             </View>
             <View style={ styles.commentWarpper }>
               {
