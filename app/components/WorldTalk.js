@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const POPULAR = 'hot';
-const POPULAR_URL = 'http://www.insoya.com/bbs/_v.php?id=hot_post';
+const WORLD_TALK = 'world';
+const WORLD_TALK_URL = 'http://www.insoya.com/bbs/zboard.php?id=talkmaple_world_etc&divpage=1';
 
-class Popular extends Component {
+class WorldTalk extends Component {
   constructor({ posts }) {
     super();
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -39,7 +39,7 @@ class Popular extends Component {
   componentWillMount() {
     const { posts, fetchPostList, showProgress, showBackgroundProgress } = this.props;
     posts.length < 20 ? showProgress() : showBackgroundProgress();
-    fetchPostList(POPULAR_URL, POPULAR);
+    fetchPostList(WORLD_TALK_URL, WORLD_TALK);
   }
 
   onClickItem(url) {
@@ -48,7 +48,7 @@ class Popular extends Component {
 
   paginate() {
     const { page } = this.state;
-    this.props.fetchPostList(`${POPULAR_URL}&page=${page + 1}`, POPULAR);
+    this.props.fetchPostList(`${WORLD_TALK_URL}&page=${page + 1}`, WORLD_TALK);
     this.setState({ page: page + 1 });
   }
 
@@ -56,7 +56,7 @@ class Popular extends Component {
     const { progress } = this.props;
     return (
       <View>
-        <Text style={ styles.title }>인기 게시물</Text>
+        <Text style={ styles.title }>월드 토크</Text>
         { progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
       </View>
     );
@@ -65,7 +65,7 @@ class Popular extends Component {
   render() {
     const { posts } = this.props;
     const { page } = this.state;
-    const dataSource = this.ds.cloneWithRows(posts.filter(p => p.menu === POPULAR).slice(0, 20 * (page + 1)));
+    const dataSource = this.ds.cloneWithRows(posts.filter(p => p.menu === WORLD_TALK).slice(0, 20 * (page + 1)));
 
     return (
       <View style={ styles.container }>
@@ -93,4 +93,4 @@ export default connect(
     progress: Progress.backgroundShowing,
   }),
   { fetchPostList, showProgress, showBackgroundProgress },
-)(Popular);
+)(WorldTalk);
