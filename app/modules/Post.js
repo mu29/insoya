@@ -13,10 +13,10 @@ export default function (state = defaultState, action) {
   switch (action.type) {
     case POST_LIST_SUCCEEDED:
       let posts = [...state.posts];
-      const postIndexs = posts.map(p => p.url);
+      const postIndexs = posts.map(p => p.index);
       action.posts.forEach(post => {
         post.menu = action.menu;
-        const index = postIndexs.indexOf(post.url);
+        const index = postIndexs.indexOf(post.index);
         if (index > -1) {
           posts[index] = post;
         } else {
