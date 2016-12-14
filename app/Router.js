@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { BackAndroid, Platform, Navigator, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 import Home from './containers/Home';
 import PostView from './containers/PostView';
 
@@ -24,6 +25,7 @@ class Router extends Component {
 
   componentDidMount() {
     BackAndroid.addEventListener('hardwareBackPress', this.handleBackButton);
+    SplashScreen.hide();
   }
 
   componentWillUnmount() {
