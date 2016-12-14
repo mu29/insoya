@@ -27,12 +27,15 @@
 		20FE611461BA4E59B7EE7885 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BA5FB5289C5413B969B2B75 /* Entypo.ttf */; };
 		26FE99CC33CF4D8286F4D279 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85F6CB9BAE854BB2B199D173 /* Zocial.ttf */; };
 		28D877FBCE0048DFA5B3BDFB /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3627E96E627F447693314058 /* Octicons.ttf */; };
+		2AEA4686DB511D936E7C573D /* libPods-insoyaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB47AA41E042C65B3FE575A /* libPods-insoyaTests.a */; };
+		5C3E42701EE74F7FB0D2F344 /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B859FB36704401886462489 /* libRNAdMobManager.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		7D214B386FBF4AFFA3190AD5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E8B711A854873B7EE936A /* SimpleLineIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		909B2893B5454D35BBCDB6EC /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1598DCF1BFB4B0EA9701BBE /* Foundation.ttf */; };
 		A223E63B2B9E455EB79A7034 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF3F6E23BBE642188E142C09 /* Ionicons.ttf */; };
 		C8D5785D66A4450183FECADC /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC392E609AC64A9ABF2CFCDD /* libRNVectorIcons.a */; };
+		D4ACC386CD6037C9E74476F6 /* libPods-insoya.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9E54CF9EEB7333EC13588E /* libPods-insoya.a */; };
 		FBB639B5EFF64520A433698A /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92FA55251493477185CC8EAE /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
+		};
+		5B60488F1E0148BD0077FEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6B9A80E7D5245A5A0593210 /* RNAdMobManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A96DA7741C146D7200FC639B;
+			remoteInfo = RNAdMobManager;
 		};
 		5B8E56601E0006470015011D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -206,12 +216,17 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = insoya/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = insoya/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		3462B66498617D2DC6341AC5 /* Pods-insoyaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insoyaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-insoyaTests/Pods-insoyaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3627E96E627F447693314058 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		3BA5FB5289C5413B969B2B75 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		4A6E8B711A854873B7EE936A /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		4B859FB36704401886462489 /* libRNAdMobManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAdMobManager.a; sourceTree = "<group>"; };
+		4FB47AA41E042C65B3FE575A /* libPods-insoyaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-insoyaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5934661794E54B93B1227A78 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7C9E54CF9EEB7333EC13588E /* libPods-insoya.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-insoya.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EC7A0E9132EA614DF242F5D /* Pods-insoyaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insoyaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-insoyaTests/Pods-insoyaTests.release.xcconfig"; sourceTree = "<group>"; };
 		80BF056E223749A690BAC916 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		85F6CB9BAE854BB2B199D173 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -220,6 +235,9 @@
 		CF3F6E23BBE642188E142C09 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D1598DCF1BFB4B0EA9701BBE /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		DC392E609AC64A9ABF2CFCDD /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		E06375DDAD24995256BA7096 /* Pods-insoya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insoya.release.xcconfig"; path = "Pods/Target Support Files/Pods-insoya/Pods-insoya.release.xcconfig"; sourceTree = "<group>"; };
+		E5F7221E890334A203B48CB2 /* Pods-insoya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insoya.debug.xcconfig"; path = "Pods/Target Support Files/Pods-insoya/Pods-insoya.debug.xcconfig"; sourceTree = "<group>"; };
+		F6B9A80E7D5245A5A0593210 /* RNAdMobManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAdMobManager.xcodeproj; path = "../node_modules/react-native-admob/ios/RNAdMobManager.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				2AEA4686DB511D936E7C573D /* libPods-insoyaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +266,8 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C8D5785D66A4450183FECADC /* libRNVectorIcons.a in Frameworks */,
+				5C3E42701EE74F7FB0D2F344 /* libRNAdMobManager.a in Frameworks */,
+				D4ACC386CD6037C9E74476F6 /* libPods-insoya.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +374,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2BE082F570F180C8EFA312A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5F7221E890334A203B48CB2 /* Pods-insoya.debug.xcconfig */,
+				E06375DDAD24995256BA7096 /* Pods-insoya.release.xcconfig */,
+				3462B66498617D2DC6341AC5 /* Pods-insoyaTests.debug.xcconfig */,
+				7EC7A0E9132EA614DF242F5D /* Pods-insoyaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B6048791E0148BD0077FEE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B6048901E0148BD0077FEE1 /* libRNAdMobManager.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5B8E56581E0006470015011D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +434,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				80BF056E223749A690BAC916 /* RNVectorIcons.xcodeproj */,
+				F6B9A80E7D5245A5A0593210 /* RNAdMobManager.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -415,6 +456,8 @@
 				00E356EF1AD99517003FC87E /* insoyaTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				B4ACBFB6016549B99130857F /* Resources */,
+				2BE082F570F180C8EFA312A3 /* Pods */,
+				C0197C7B9EA747E3E4E42A5A /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -445,6 +488,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		C0197C7B9EA747E3E4E42A5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C9E54CF9EEB7333EC13588E /* libPods-insoya.a */,
+				4FB47AA41E042C65B3FE575A /* libPods-insoyaTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -452,9 +504,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "insoyaTests" */;
 			buildPhases = (
+				83B8D3724A0EA985E2B07DF4 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				EABF85B554D49D6B8133B22F /* [CP] Embed Pods Frameworks */,
+				AC875FE979EBF25C8BF0C7E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -470,10 +525,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "insoya" */;
 			buildPhases = (
+				45E8CBC99B6ABCDD21ED7BC9 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				3B06892F5514F6865C3570FD /* [CP] Embed Pods Frameworks */,
+				E67D91DD1DC9AE7D54EF5DC2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -560,6 +618,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 5B6048791E0148BD0077FEE1 /* Products */;
+					ProjectRef = F6B9A80E7D5245A5A0593210 /* RNAdMobManager.xcodeproj */;
+				},
+				{
 					ProductGroup = 5B8E56581E0006470015011D /* Products */;
 					ProjectRef = 80BF056E223749A690BAC916 /* RNVectorIcons.xcodeproj */;
 				},
@@ -627,6 +689,13 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5B6048901E0148BD0077FEE1 /* libRNAdMobManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNAdMobManager.a;
+			remoteRef = 5B60488F1E0148BD0077FEE1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5B8E56611E0006470015011D /* libRCTImage-tvOS.a */ = {
@@ -758,6 +827,96 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		3B06892F5514F6865C3570FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-insoya/Pods-insoya-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45E8CBC99B6ABCDD21ED7BC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		83B8D3724A0EA985E2B07DF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AC875FE979EBF25C8BF0C7E5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-insoyaTests/Pods-insoyaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E67D91DD1DC9AE7D54EF5DC2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-insoya/Pods-insoya-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EABF85B554D49D6B8133B22F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-insoyaTests/Pods-insoyaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -803,6 +962,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3462B66498617D2DC6341AC5 /* Pods-insoyaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEAD_CODE_STRIPPING = NO;
@@ -817,6 +977,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/insoya.app/insoya";
@@ -825,6 +991,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EC7A0E9132EA614DF242F5D /* Pods-insoyaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -836,6 +1003,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/insoya.app/insoya";
@@ -844,6 +1017,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5F7221E890334A203B48CB2 /* Pods-insoya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -863,6 +1037,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E06375DDAD24995256BA7096 /* Pods-insoya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -919,10 +1094,12 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -960,9 +1137,11 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
