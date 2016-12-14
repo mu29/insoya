@@ -10,17 +10,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === 'android' ? 0 : 20,
-    backgroundColor: '#FAFAFA'
+    backgroundColor: '#FFF'
+  },
+  scroll: {
+    flex: 1,
+    backgroundColor: '#FAFAFA',
   },
   contentWrapper: {
     padding: 12,
-    paddingBottom: 0,
-    marginBottom: -12,
     backgroundColor: '#FFF'
   },
   commentWarpper: {
-    marginTop: -8,
+    height: undefined,
     paddingTop: 8,
+    paddingBottom: 8,
     backgroundColor: '#FAFAFA',
   },
   title: {
@@ -117,7 +120,7 @@ class PostView extends Component {
             </TouchableHighlight>
           </Image>
         </Modal>
-        <ScrollView>
+        <ScrollView style={ styles.scroll }>
           <View>
             <View style={ styles.contentWrapper }>
               <Text style={ styles.title }>{ post.title }</Text>
@@ -135,7 +138,6 @@ class PostView extends Component {
                 ))
               }
               <Text style={ styles.content }>{ post.content }</Text>
-              <View style={ styles.line } />
             </View>
             <View style={ styles.commentWarpper }>
               {
