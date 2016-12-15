@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableHighlight, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     borderColor: '#999999',
     marginBottom: 16,
     width: undefined,
-    height: 300,
+    height: 150,
   },
 });
 
@@ -45,10 +45,16 @@ export default class CommentItem extends Component {
       <View style={ [styles.container, additional && styles.additional] }>
         {
           images && images.map((image, i) => (
-            <Image style={ styles.image } source={ { uri: image } } />
+            <TouchableHighlight
+              key={ i }
+              underlayColor={ 'transparent' }
+              onPress={ () => this.props.showImage(image) }
+            >
+              <Image style={ styles.image } source={ { uri: image } } />
+            </TouchableHighlight>
           ))
         }
-        <Text style={ styles.content }>{ content }</Text>
+        { content && <Text style={ styles.content }>{ content }</Text> }
         <Text style={ styles.author }>{ `${author} | ${date}` }</Text>
       </View>
     );

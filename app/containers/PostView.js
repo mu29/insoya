@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius: 3,
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: '#999999',
     marginBottom: 16,
     width: undefined,
@@ -178,7 +178,7 @@ class PostView extends Component {
               }
               {
                 post.commentList && post.commentList.map((comment, i) => (
-                  <CommentItem key={ i } comment={ comment } />
+                  <CommentItem key={ i } comment={ comment } showImage={ this.showImage }/>
                 ))
               }
             </View>
