@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, Modal, ActivityIndicator, View, Text, Image, TouchableHighlight, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { AdMobBanner } from 'react-native-admob'
+import { AdMobBanner } from 'react-native-admob';
 import { readPost } from '../modules/Post';
 import { showProgress } from '../modules/Progress';
 import CommentItem from '../components/CommentItem';
@@ -71,15 +71,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  admobWrapper: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   admob: {
     width: 320,
     height: 50,
+  },
+  admobWrapper: {
+    flex: 1,
+    padding: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: '#E0E0E0',
+    borderWidth: 0.5,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderRadius: 2,
+    margin: 4,
+    marginLeft: 12,
+    marginRight: 12,
+    backgroundColor: '#FFF',
   },
 });
 
@@ -154,21 +164,18 @@ class PostView extends Component {
                 ))
               }
               <Text style={ styles.content }>{ post.content }</Text>
+            </View>
+            <View style={ styles.commentWarpper }>
               {
-                showAd && [
-                  <View key="0" style={ styles.line } />,
-                  <View key="1" style={ styles.admobWrapper }>
+                showAd && <View style={ styles.admobWrapper }>
                     <AdMobBanner
                       style={ styles.admob }
                       bannerSize="banner"
                       adUnitID={ Platform.OS === 'android' ? 'ca-app-pub-6596802864096567/9188079532' : 'ca-app-pub-6596802864096567/5955411536' }
                       didFailToReceiveAdWithError={ () => this.hideAd() }
                     />
-                  </View>,
-                ]
+                  </View>
               }
-            </View>
-            <View style={ styles.commentWarpper }>
               {
                 post.commentList && post.commentList.map((comment, i) => (
                   <CommentItem key={ i } comment={ comment } />
