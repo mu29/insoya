@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,13 +28,26 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: -4,
   },
+  image: {
+    borderRadius: 3,
+    borderWidth: 0.5,
+    borderColor: '#999999',
+    marginBottom: 16,
+    width: undefined,
+    height: 300,
+  },
 });
 
 export default class CommentItem extends Component {
   render() {
-    const { author, content, date, additional } = this.props.comment;
+    const { author, content, date, additional, images } = this.props.comment;
     return (
       <View style={ [styles.container, additional && styles.additional] }>
+        {
+          images && images.map((image, i) => (
+            <Image style={ styles.image } source={ { uri: image } } />
+          ))
+        }
         <Text style={ styles.content }>{ content }</Text>
         <Text style={ styles.author }>{ `${author} | ${date}` }</Text>
       </View>
