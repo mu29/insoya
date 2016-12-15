@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     borderColor: '#E0E0E0',
   },
   modal: {
-    flex: 1,
+    flex: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -110,19 +110,16 @@ class PostView extends Component {
   render() {
     const { showing, post, route, navigator } = this.props;
     const { showAd, imageUrl } = this.state;
+    const visible = { opacity: showing ? 0 : 255 };
     return (
       <View style={ styles.container }>
         <Navigation route={ route } navigator={ navigator } />
-        <Modal
-          animationType={ "none" }
-          transparent={ false }
-          visible={ showing }
-          onRequestClose={() => {}}
-        >
+        {
+          showing &&
           <View style={ styles.modal }>
             <ActivityIndicator animating={ true } size="large" color="#fa5d63" />
           </View>
-        </Modal>
+        }
         <Modal
           animationType={ "fade" }
           transparent={ false }
@@ -139,7 +136,7 @@ class PostView extends Component {
             </TouchableHighlight>
           </Image>
         </Modal>
-        <ScrollView style={ styles.scroll }>
+        <ScrollView style={ [styles.scroll, visible] }>
           <View>
             <View style={ styles.contentWrapper }>
               <Text style={ styles.title }>{ post.title }</Text>
