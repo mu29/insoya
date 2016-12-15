@@ -3,7 +3,7 @@ import { Platform, Modal, ActivityIndicator, View, Text, Image, TouchableHighlig
 import { connect } from 'react-redux';
 import { AdMobBanner } from 'react-native-admob';
 import { readPost } from '../modules/Post';
-import { showProgress } from '../modules/Progress';
+import { showViewProgress } from '../modules/Progress';
 import CommentItem from '../components/CommentItem';
 import Navigation from '../components/Navigation';
 
@@ -104,8 +104,8 @@ class PostView extends Component {
   }
 
   componentDidMount() {
-    const { url, readPost, showProgress } = this.props;
-    showProgress();
+    const { url, readPost, showViewProgress } = this.props;
+    showViewProgress();
     readPost(`${BASE_URL}/${url}`);
   }
 
@@ -192,7 +192,7 @@ class PostView extends Component {
 export default connect(
   ({ Post, Progress }) => ({
     post: Post.post,
-    showing: Progress.showing,
+    showing: Progress.viewShowing,
   }),
-  { readPost, showProgress },
+  { readPost, showViewProgress },
 )(PostView);
