@@ -4,6 +4,7 @@ import { Platform, ActivityIndicator, View, Text, StyleSheet } from 'react-nativ
 import MapleTalk from '../components/MapleTalk';
 import JobTalk from '../components/JobTalk';
 import WorldTalk from '../components/WorldTalk';
+import News from '../components/News';
 import Info from '../components/Info';
 import Menu from '../components/Menu';
 
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
 });
 
 const MENUS = [
+  { icon: 'bell', label: '새소식', component: News },
   { icon: 'comments', label: '메이플토크', component: MapleTalk },
   { icon: 'users', label: '직업별토크', component: JobTalk },
   { icon: 'globe', label: '월드토크', component: WorldTalk },
@@ -31,7 +33,7 @@ const MENUS = [
 class Home extends Component {
   constructor() {
     super();
-    this.state = { index: 0 };
+    this.state = { index: 1 };
     this.onSelectMenu = this.onSelectMenu.bind(this);
   }
 
