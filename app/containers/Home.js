@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Platform, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
-import MapleTalk from '../components/MapleTalk';
-import JobTalk from '../components/JobTalk';
-import WorldTalk from '../components/WorldTalk';
-import News from '../components/News';
+import { INSOYA_HOST } from '../config';
+import Posts from '../components/Posts';
 import Info from '../components/Info';
 import Menu from '../components/Menu';
 
@@ -23,11 +21,11 @@ const styles = StyleSheet.create({
 });
 
 const MENUS = [
-  { icon: 'bell', label: '새소식', component: News },
-  { icon: 'comments', label: '메이플토크', component: MapleTalk },
-  { icon: 'users', label: '직업별토크', component: JobTalk },
-  { icon: 'globe', label: '월드토크', component: WorldTalk },
-  { icon: 'archive', label: '정보', component: Info },
+  { icon: 'comments', title: '새소식', group: 'news', url: `${INSOYA_HOST}zboard.php?id=bbs11&divpage=1`, component: Posts },
+  { icon: 'bell', title: '메이플 토크', group: 'maple', url: `${INSOYA_HOST}zboard.php?id=talkmaple&divpage=18`, component: Posts },
+  { icon: 'users', title: '직업별 토크', group: 'job', url: `${INSOYA_HOST}zboard.php?id=talkmaple_job&divpage=8`, component: Posts },
+  { icon: 'globe', title: '월드 토크', group: 'world', url: `${INSOYA_HOST}zboard.php?id=talkmaple_world_etc&divpage=1`, component: Posts },
+  { icon: 'archive', title: '정보', component: Info },
 ];
 
 class Home extends Component {

@@ -23,10 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const NEWS = 'news';
-const NEWS_URL = 'http://www.insoya.com/bbs/zboard.php?id=bbs11&divpage=1';
-
-class News extends Component {
+class Posts extends Component {
   constructor({ posts }) {
     super();
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -37,9 +34,16 @@ class News extends Component {
   }
 
   componentWillMount() {
-    const { posts, fetchPostList, showProgress, showBackgroundProgress } = this.props;
-    posts.length < 25 ? showProgress() : showBackgroundProgress();
-    fetchPostList(NEWS_URL, NEWS);
+    const {
+      posts,
+      group,
+      url,
+      fetchPostList,
+      showProgress,
+      showBackgroundProgress,
+    } = this.props;
+    posts.length < 20 ? showProgress() : showBackgroundProgress();
+    fetchPostList(url, group);
   }
 
   onClickItem(url) {
@@ -47,38 +51,39 @@ class News extends Component {
   }
 
   paginate() {
+    const { url, group } = this.props
     const { page } = this.state;
-    this.props.fetchPostList(`${NEWS_URL}&page=${page + 1}`, NEWS);
+    this.props.fetchPostList(`${url}&page=${page + 1}`, group);
     this.setState({ page: page + 1 });
   }
 
   renderHeader() {
-    const { progress } = this.props;
+    const { title, progress } = this.props;
     return (
       <View>
-        <Text style={ styles.title }>새소식</Text>
+        <Text style={ styles.title }>{ title }</Text>
         { progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
       </View>
     );
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, group } = this.props;
     const { page } = this.state;
-    const dataSource = this.ds.cloneWithRows(posts.filter(p => p.menu === NEWS).slice(0, 25 * (page + 1)));
+    const dataSource = this.ds.cloneWithRows(posts.filter(p => p.menu === group).slice(0, 20 * (page + 1)));
 
     return (
       <View style={ styles.container }>
         <ListView
           style={ styles.list }
           pageSize={ 10 }
-          initialListSize={ 25 }
+          initialListSize={ 20 }
           dataSource={ dataSource }
           renderRow={ (data) => <PostItem { ...data } onClick={ this.onClickItem } /> }
           renderHeader={ () => this.renderHeader() }
           renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
           onEndReached={ () => this.paginate() }
-          onEndReachedThreshold={ 100 }
+          onEndReachedThreshold={ 300 }
           enableEmptySections={ true }
           removeClippedSubviews={ false }
         />
@@ -93,4 +98,4 @@ export default connect(
     progress: Progress.backgroundShowing,
   }),
   { fetchPostList, showProgress, showBackgroundProgress },
-)(News);
+)(Posts);

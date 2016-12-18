@@ -49,7 +49,7 @@ export default class Menu extends Component {
                 >
                   <View style={ { alignItems: 'center' } }>
                     <Icon name={ menu.icon } style={ iconStyle } size={ 20 } />
-                    <Text style={ textStyle }>{ menu.label }</Text>
+                    <Text style={ textStyle }>{ menu.title }</Text>
                   </View>
                 </TouchableHighlight>
               </View>
