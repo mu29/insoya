@@ -3,7 +3,7 @@ import { BackAndroid, Platform, Navigator, Text, View, StyleSheet } from 'react-
 import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 import Home from './containers/Home';
-import PostView from './containers/PostView';
+import PostView from './components/PostView';
 
 const ROUTES = {
   home: Home,
