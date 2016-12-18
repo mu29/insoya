@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Platform, Modal, ActivityIndicator, View, Text, Image, TouchableHighlight, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { AdMobBanner } from 'react-native-admob';
-import { readPost } from '../modules/Post';
-import { showViewProgress } from '../modules/Progress';
-import CommentItem from '../components/CommentItem';
-import Navigation from '../components/Navigation';
+import { readPost } from '../../modules/Post';
+import { showViewProgress } from '../../modules/Progress';
+import CommentItem from '../Item/CommentItem';
+import Navigation from '../Navigation';
 
 const styles = StyleSheet.create({
   container: {

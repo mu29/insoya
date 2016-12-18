@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, ListView, ActivityIndicator, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchPostList } from '../modules/Post';
-import { showProgress, showBackgroundProgress } from '../modules/Progress';
-import PostItem from './PostItem';
+import { fetchPostList } from '../../modules/Post';
+import { showProgress, showBackgroundProgress } from '../../modules/Progress';
+import PostItem from '../Item/PostItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class Posts extends Component {
+class PostList extends Component {
   constructor({ posts }) {
     super();
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -83,7 +83,7 @@ class Posts extends Component {
           renderHeader={ () => this.renderHeader() }
           renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
           onEndReached={ () => this.paginate() }
-          onEndReachedThreshold={ 300 }
+          onEndReachedThreshold={ 200 }
           enableEmptySections={ true }
           removeClippedSubviews={ false }
         />
@@ -98,4 +98,4 @@ export default connect(
     progress: Progress.backgroundShowing,
   }),
   { fetchPostList, showProgress, showBackgroundProgress },
-)(Posts);
+)(PostList);
