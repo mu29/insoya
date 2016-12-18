@@ -1,16 +1,18 @@
 {
   "development": {
     "api_entry": "https://27r6gr76v9.execute-api.ap-northeast-2.amazonaws.com/test",
+    "insoya_host": "http://insoya.com/bbs/",
   },
   "staging": {
     "api_entry": "http://localhost:3000/v1",
+    "insoya_host": "http://insoya.com/bbs/",
   },
   "production": {
     "api_entry": "https://27r6gr76v9.execute-api.ap-northeast-2.amazonaws.com/test",
+    "insoya_host": "http://insoya.com/bbs/",
   },
   "test": {
-    "message_server_url": "",
     "api_entry": "",
-    "host": ""
+    "insoya_host": "http://insoya.com/bbs/",
   }
 }
