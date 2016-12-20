@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
 });
 
 const MENUS = [
-  { icon: 'comments', title: '새소식', group: 'news', url: `${INSOYA_HOST}zboard.php?id=bbs11&divpage=1`, component: PostList },
-  { icon: 'bell', title: '메이플 토크', group: 'maple', url: `${INSOYA_HOST}zboard.php?id=talkmaple&divpage=18`, component: PostList },
+  { icon: 'bell', title: '새소식', group: 'news', url: `${INSOYA_HOST}zboard.php?id=bbs11&divpage=1`, component: PostList },
+  { icon: 'comments', title: '메이플 토크', group: 'maple', url: `${INSOYA_HOST}zboard.php?id=talkmaple&divpage=18`, component: PostList },
   { icon: 'users', title: '직업별 토크', group: 'job', url: `${INSOYA_HOST}zboard.php?id=talkmaple_job&divpage=8`, component: PostList },
   { icon: 'globe', title: '월드 토크', group: 'world', url: `${INSOYA_HOST}zboard.php?id=talkmaple_world_etc&divpage=1`, component: PostList },
   { icon: 'archive', title: '정보', component: Info },
