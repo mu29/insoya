@@ -171,7 +171,7 @@ class PostView extends Component {
                     <AdMobBanner
                       style={ styles.admob }
                       bannerSize="banner"
-                      adUnitID={ Platform.OS === 'android' ? 'ca-app-pub-6596802864096567/9188079532' : 'ca-app-pub-6596802864096567/5955411536' }
+                      adUnitID={ Platform.OS === 'android' ? 'ca-app-pub-6988311040138762/6252116935' : 'ca-app-pub-6988311040138762/7170446937' }
                       didFailToReceiveAdWithError={ () => this.hideAd() }
                     />
                   </View>
