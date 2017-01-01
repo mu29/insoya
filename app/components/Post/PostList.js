@@ -46,6 +46,21 @@ class PostList extends Component {
     fetchPostList(url, group);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {
+      posts,
+      group,
+      url,
+      fetchPostList,
+      showProgress,
+      showBackgroundProgress,
+    } = this.props;
+    if (group != nextProps.group) {
+      posts.length < 20 ? showProgress() : showBackgroundProgress();
+      fetchPostList(nextProps.url, nextProps.group);
+    }
+  }
+
   onClickItem(url) {
     this.props.navigator.push({ name: 'view', passProps: { url } })
   }
@@ -83,7 +98,7 @@ class PostList extends Component {
           renderHeader={ () => this.renderHeader() }
           renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
           onEndReached={ () => this.paginate() }
-          onEndReachedThreshold={ 200 }
+          onEndReachedThreshold={ 1000 }
           enableEmptySections={ true }
           removeClippedSubviews={ false }
         />
