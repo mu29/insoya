@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Platform, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
+import { Platform, View, Text, StyleSheet } from 'react-native';
 import { INSOYA_HOST } from '../config';
 import PostList from '../components/Post/PostList';
 import Info from '../components/Info';
@@ -28,7 +27,7 @@ const MENUS = [
   { icon: 'archive', title: '정보', component: Info },
 ];
 
-class Home extends Component {
+export default class Home extends Component {
   constructor() {
     super();
     this.state = { index: 1 };
@@ -42,18 +41,11 @@ class Home extends Component {
   render() {
     const { showing, route, navigator } = this.props;
     const { index } = this.state;
-    const visible = { flex: showing ? 0 : 1 };
     let Component = MENUS[index].component;
 
     return (
       <View style={ styles.container }>
-        {
-          showing &&
-          <View style={ styles.modal }>
-            <ActivityIndicator animating={ true } size="large" color="#fa5d63" />
-          </View>
-        }
-        <View style={ visible }>
+        <View style={ { flex: 1 } }>
           <Component route={ route } navigator={ navigator } { ...MENUS[index] } />
         </View>
         <Menu menus={ MENUS } index={ index } onSelectMenu={ this.onSelectMenu } />
@@ -61,10 +53,3 @@ class Home extends Component {
     );
   }
 }
-
-export default connect(
-  ({ Progress }) => ({
-    showing: Progress.showing,
-  }),
-  null,
-)(Home);

@@ -83,7 +83,7 @@ class PostList extends Component {
   }
 
   render() {
-    const { posts, group } = this.props;
+    const { progress, posts, group } = this.props;
     const { page } = this.state;
     const dataSource = this.ds.cloneWithRows(posts.filter(p => p.menu === group).slice(0, 20 * (page + 1)));
 
@@ -96,7 +96,7 @@ class PostList extends Component {
           dataSource={ dataSource }
           renderRow={ (data) => <PostItem { ...data } onClick={ this.onClickItem } /> }
           renderHeader={ () => this.renderHeader() }
-          renderFooter={ () => <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
+          renderFooter={ () => <View>{ !progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }</View> }
           onEndReached={ () => this.paginate() }
           onEndReachedThreshold={ 1000 }
           enableEmptySections={ true }
@@ -110,7 +110,7 @@ class PostList extends Component {
 export default connect(
   ({ Post, Progress }) => ({
     posts: Post.posts,
-    progress: Progress.backgroundShowing,
+    progress: Progress.backgroundShowing || Progress.showing,
   }),
   { fetchPostList, showProgress, showBackgroundProgress },
 )(PostList);
