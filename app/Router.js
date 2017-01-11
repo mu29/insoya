@@ -1,18 +1,58 @@
 import React, { Component, PropTypes } from 'react';
-import { BackAndroid, Platform, Navigator, Text, View, StyleSheet } from 'react-native';
+import { StatusBar, BackAndroid, Platform, Navigator, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
-import Home from './containers/Home';
+import { INSOYA_HOST } from './config';
 import PostView from './components/Post/PostView';
+import Info from './components/Info';
+import PostList from './components/Post/PostList';
+import Header from './components/Header';
+import Menu from './components/Menu';
+
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : 0;
 
 const ROUTES = {
-  home: Home,
+  list: PostList,
   view: PostView,
 };
+
+const MENUS = [
+  {
+    icon: 'bell', title: '메이플 정보', component: PostList,
+    menus: [
+      { group: 'news', title: '새소식', url: `${INSOYA_HOST}zboard.php?id=bbs11&divpage=1` },
+      { group: 'info', title: '정보나눔터', url: `${INSOYA_HOST}zboard.php?id=maple_info&divpage=2` },
+    ],
+  },
+  {
+    icon: 'comments', title: '메이플 커뮤니티', component: PostList,
+    menus: [
+      { group: 'maple', title: '메이플 토크', url: `${INSOYA_HOST}zboard.php?id=talkmaple&divpage=18` },
+      { group: 'reboot', title: '리부트 토크', url: `${INSOYA_HOST}zboard.php?id=talkmaple_world_etc&category=5` },
+      { group: 'world', title: '해외 토크', url: `${INSOYA_HOST}zboard.php?id=talkmaple_world_etc&category=1` },
+      { group: 'mobile', title: '모바일 메이플', url: `${INSOYA_HOST}zboard.php?id=maple_mobile&divpage=1` },
+    ],
+  },
+  {
+    icon: 'users', title: '인소야 포럼', component: PostList,
+    menus: [
+      { group: 'maple', title: '메이플 토크', url: `${INSOYA_HOST}zboard.php?id=talkmaple&divpage=18` },
+      { group: 'reboot', title: '리부트 토크', url: `${INSOYA_HOST}zboard.php?id=talkmaple_world_etc&category=5` },
+      { group: 'world', title: '해외 토크', url: `${INSOYA_HOST}zboard.php?id=talkmaple_world_etc&category=1` },
+      { group: 'mobile', title: '모바일 메이플', url: `${INSOYA_HOST}zboard.php?id=maple_mobile&divpage=1` },
+    ],
+  },
+  { icon: 'users', title: '인소야 포럼', group: 'job', url: `${INSOYA_HOST}zboard.php?id=talkfree&divpage=8`, component: PostList },
+  { icon: 'archive', title: '정보', component: Info },
+];
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  statusBar: {
+    height: STATUSBAR_HEIGHT,
+    backgroundColor: '#FAFAFA',
   },
 });
 
@@ -50,21 +90,27 @@ class Router extends Component {
 
   render() {
     return(
-      <Navigator
-        ref="navigator"
-        style={ styles.container }
-        configureScene={
-          (route) => {
-            if (Platform.OS === 'android') {
-              return Navigator.SceneConfigs.FloatFromBottomAndroid;
-            } else {
-              return Navigator.SceneConfigs.FloatFromRight;
+      <View style={ styles.container }>
+        <View style={ styles.statusBar }>
+          <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
+        </View>
+        <Navigator
+          ref="navigator"
+          style={ styles.container }
+          configureScene={
+            (route) => {
+              if (Platform.OS === 'android') {
+                return Navigator.SceneConfigs.FloatFromBottomAndroid;
+              } else {
+                return Navigator.SceneConfigs.FloatFromRight;
+              }
             }
           }
-        }
-        initialRoute={ { name: 'home' } }
-        renderScene={ this.renderScene }
-      />
+          initialRoute={ { name: 'home' } }
+          renderScene={ this.renderScene }
+        />
+        <Menu menus={ MENUS } index={ 0 } />
+      </View>
     );
   }
 
