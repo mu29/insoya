@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Menu extends Component {
+export default class MenuBar extends Component {
   constructor() {
     super();
     this.onSelectMenu = this.onSelectMenu.bind(this);
