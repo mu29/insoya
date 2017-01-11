@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,18 +9,31 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     borderBottomColor: '#AAAAAA',
     borderBottomWidth: 0.5,
-    padding: 12,
+    padding: 8,
   },
-  text: {
+  title: {
     color: '#3C3C3C',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
+  },
+  subtitle: {
+    color: '#898989',
+    fontSize: 12,
+    marginTop: 4,
+  },
+  icon: {
+    color: '#898989',
+    marginTop: 4,
+  },
+  horizontal: {
+    flexDirection: 'row',
   },
 });
 
 export default class Header extends Component {
   render() {
-    const { menus, index, onClickTitle } = this.props;
+    const { title, subtitle, onClickTitle } = this.props;
+
     return (
       <View style={ styles.container }>
         <TouchableHighlight
@@ -27,7 +41,11 @@ export default class Header extends Component {
           onPress={ onClickTitle }
         >
           <View style={ { alignItems: 'center' } }>
-            <Text style={ styles.text }>메이플 토크</Text>
+            <Text style={ styles.title }>{ title }</Text>
+            <View style={ styles.horizontal }>
+              <Text style={ styles.subtitle }>{ subtitle } </Text>
+              <Icon name="caret-down" style={ styles.icon } size={ 12 } />
+            </View>
           </View>
         </TouchableHighlight>
       </View>
