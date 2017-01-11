@@ -3,13 +3,13 @@ import { Platform, View, Text, StyleSheet } from 'react-native';
 import { INSOYA_HOST } from '../config';
 import PostList from '../components/Post/PostList';
 import Info from '../components/Info';
+import Header from '../components/Header';
 import Menu from '../components/Menu';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? 0 : 20,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#FFFFFF',
   },
   modal: {
     flex: 1,
@@ -45,6 +45,7 @@ export default class Home extends Component {
 
     return (
       <View style={ styles.container }>
+        <Header />
         <View style={ { flex: 1 } }>
           <Component route={ route } navigator={ navigator } { ...MENUS[index] } />
         </View>

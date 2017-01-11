@@ -10,7 +10,6 @@ import Navigation from '../Navigation';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? 0 : 20,
     backgroundColor: '#FFF'
   },
   scroll: {

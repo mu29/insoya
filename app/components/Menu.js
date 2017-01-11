@@ -5,8 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: '#FFF',
-    borderTopColor: '#D0D0D0',
+    backgroundColor: '#FAFAFA',
+    borderTopColor: '#AAAAAA',
     borderTopWidth: 0.5,
   },
   content: {
