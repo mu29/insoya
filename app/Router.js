@@ -2,8 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import { BackAndroid, Platform, Navigator, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
+import { selectMenu } from './modules/Menu';
+import MENUS from  './constants/Menus';
 import Home from './containers/Home';
 import PostView from './components/Post/PostView';
+import MenuBar from './components/MenuBar';
 
 const ROUTES = {
   home: Home,
@@ -50,21 +53,24 @@ class Router extends Component {
 
   render() {
     return(
-      <Navigator
-        ref="navigator"
-        style={ styles.container }
-        configureScene={
-          (route) => {
-            if (Platform.OS === 'android') {
-              return Navigator.SceneConfigs.FloatFromBottomAndroid;
-            } else {
-              return Navigator.SceneConfigs.FloatFromRight;
+      <View style={ styles.container }>
+        <Navigator
+          ref="navigator"
+          style={ styles.container }
+          configureScene={
+            (route) => {
+              if (Platform.OS === 'android') {
+                return Navigator.SceneConfigs.FloatFromBottomAndroid;
+              } else {
+                return Navigator.SceneConfigs.FloatFromRight;
+              }
             }
           }
-        }
-        initialRoute={ { name: 'home' } }
-        renderScene={ this.renderScene }
-      />
+          initialRoute={ { name: 'home' } }
+          renderScene={ this.renderScene }
+        />
+        <MenuBar menus={ MENUS } onSelectMenu={ this.props.selectMenu } index={ this.props.menuIndex } />
+      </View>
     );
   }
 
@@ -75,6 +81,8 @@ class Router extends Component {
 }
 
 export default connect(
-  (store) => ({
-  })
+  ({ Menu }) => ({
+    menuIndex: Menu.index,
+  }),
+  { selectMenu }
 )(Router);

@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Platform, View, Text, StyleSheet } from 'react-native';
-import { INSOYA_HOST } from '../config';
-import PostList from '../components/Post/PostList';
-import Info from '../components/Info';
-import Menu from '../components/Menu';
+import { connect } from 'react-redux';
+import MENUS from  '../constants/Menus';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? 0 : 20,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#FFFFFF',
   },
   modal: {
     flex: 1,
@@ -19,37 +16,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const MENUS = [
-  { icon: 'bell', title: '새소식', group: 'news', url: `${INSOYA_HOST}zboard.php?id=bbs11&divpage=1`, component: PostList },
-  { icon: 'comments', title: '메이플 토크', group: 'maple', url: `${INSOYA_HOST}zboard.php?id=talkmaple&divpage=18`, component: PostList },
-  { icon: 'users', title: '직업별 토크', group: 'job', url: `${INSOYA_HOST}zboard.php?id=talkmaple_job&divpage=8`, component: PostList },
-  { icon: 'globe', title: '월드 토크', group: 'world', url: `${INSOYA_HOST}zboard.php?id=talkmaple_world_etc&divpage=1`, component: PostList },
-  { icon: 'archive', title: '정보', component: Info },
-];
-
-export default class Home extends Component {
-  constructor() {
-    super();
-    this.state = { index: 1 };
-    this.onSelectMenu = this.onSelectMenu.bind(this);
-  }
-
-  onSelectMenu(index) {
-    this.setState({ index: index });
-  }
-
+class Home extends Component {
   render() {
-    const { showing, route, navigator } = this.props;
-    const { index } = this.state;
-    let Component = MENUS[index].component;
+    const { showing, route, navigator, menuIndex } = this.props;
+    let Component = MENUS[menuIndex].component;
 
     return (
       <View style={ styles.container }>
-        <View style={ { flex: 1 } }>
-          <Component route={ route } navigator={ navigator } { ...MENUS[index] } />
-        </View>
-        <Menu menus={ MENUS } index={ index } onSelectMenu={ this.onSelectMenu } />
+        <Component route={ route } navigator={ navigator } { ...MENUS[menuIndex] } />
       </View>
     );
   }
 }
+
+export default connect(
+  ({ Menu }) => ({
+    menuIndex: Menu.index,
+  })
+)(Home);

@@ -12,15 +12,6 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
   },
-  title: {
-    color: '#000',
-    padding: 12,
-    marginTop: 12,
-    marginLeft: 8,
-    marginBottom: 0,
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
 });
 
 class PostList extends Component {
@@ -73,10 +64,9 @@ class PostList extends Component {
   }
 
   renderHeader() {
-    const { title, progress } = this.props;
+    const { progress } = this.props;
     return (
       <View>
-        <Text style={ styles.title }>{ title }</Text>
         { progress && <ActivityIndicator animating={ true } style={ { padding: 8 } } size="large" color="#fa5d63"/> }
       </View>
     );

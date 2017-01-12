@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, Modal, ActivityIndicator, View, Text, Image, TouchableHighlight, ScrollView, StyleSheet } from 'react-native';
+import { Platform, StatusBar, Modal, ActivityIndicator, View, Text, Image, TouchableHighlight, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { AdMobBanner } from 'react-native-admob';
 import { readPost } from '../../modules/Post';
@@ -7,10 +7,11 @@ import { showViewProgress } from '../../modules/Progress';
 import CommentItem from '../Item/CommentItem';
 import Navigation from '../Navigation';
 
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : 0;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? 0 : 20,
     backgroundColor: '#FFF'
   },
   scroll: {
@@ -91,6 +92,10 @@ const styles = StyleSheet.create({
     marginRight: 12,
     backgroundColor: '#FFF',
   },
+  statusBar: {
+    height: STATUSBAR_HEIGHT,
+    backgroundColor: '#FAFAFA',
+  },
 });
 
 const BASE_URL = 'http://www.insoya.com/bbs';
@@ -123,6 +128,9 @@ class PostView extends Component {
     const visible = { opacity: showing ? 0 : 255 };
     return (
       <View style={ styles.container }>
+        <View style={ styles.statusBar }>
+          <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
+        </View>
         <Navigation route={ route } navigator={ navigator } />
         {
           showing &&
