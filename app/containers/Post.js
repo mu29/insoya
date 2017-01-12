@@ -32,7 +32,9 @@ export default class Post extends Component {
   }
 
   componentWillReceiveProps({ menus }) {
-    this.initPicker(menus);
+    if (menus !== this.props.menus) {
+      this.initPicker(menus);
+    }
   }
 
   initPicker(menus) {

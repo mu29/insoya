@@ -128,9 +128,12 @@ class PostView extends Component {
     const visible = { opacity: showing ? 0 : 255 };
     return (
       <View style={ styles.container }>
-        <View style={ styles.statusBar }>
-          <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
-        </View>
+        { 
+          Platform.OS === 'ios' &&
+          <View style={ styles.statusBar }>
+            <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
+          </View>
+        }
         <Navigation route={ route } navigator={ navigator } />
         {
           showing &&
