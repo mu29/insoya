@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Platform, View, StatusBar, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import Picker from 'react-native-picker';
 import Header from '../components/Header';
 import PostList from '../components/Post/PostList';
 
@@ -17,7 +18,49 @@ const styles = StyleSheet.create({
 });
 
 export default class Post extends Component {
+  constructor({ menus }) {
+    super();
+    this.state = {
+      index: 0,
+    };
+    this.initPicker = this.initPicker.bind(this);
+    this.onClickTitle = this.onClickTitle.bind(this);
+  }
+
+  componentDidMount() {
+    this.initPicker(this.props.menus);
+  }
+
+  componentWillReceiveProps({ menus }) {
+    this.initPicker(menus);
+  }
+
+  initPicker(menus) {
+    Picker.init({
+      pickerConfirmBtnText: '확인',
+      pickerCancelBtnText: '취소',
+      pickerTitleText: '메뉴를 선택해주세요',
+      pickerConfirmBtnColor: [250, 93, 99, 1],
+      pickerCancelBtnColor: [250, 93, 99, 1],
+      pickerBg: [250, 250, 250, 1],
+      pickerData: menus.map(m => m.title),
+      selectedValue: [menus.map(m => m.title)[0]],
+      onPickerConfirm: data => {
+        this.setState({ index: menus.findIndex(m => m.title === data[0]) });
+      },
+      onPickerCancel: data => {},
+      onPickerSelect: data => {}
+    });
+    Picker.hide();
+    this.setState({ index: 0 });
+  }
+
+  onClickTitle() {
+    Picker.toggle();
+  }
+
   render() {
+    const { index } = this.state;
     const { title, menus, route, navigator } = this.props;
 
     return (
@@ -25,8 +68,8 @@ export default class Post extends Component {
         <View style={ styles.statusBar }>
           <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
         </View>
-        <Header title={ title } subtitle={ menus[0].title } />
-        <PostList route={ route } navigator={ navigator } { ...menus[0] } />
+        <Header title={ title } subtitle={ menus[index].title } menus={ menus } onClick={ this.onClickTitle } />
+        <PostList route={ route } navigator={ navigator } { ...menus[index] } />
       </View>
     );
   }

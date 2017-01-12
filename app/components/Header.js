@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
 
 export default class Header extends Component {
   render() {
-    const { title, subtitle, onClickTitle } = this.props;
+    const { title, subtitle, menus, onClick } = this.props;
 
     return (
       <View style={ styles.container }>
         <TouchableHighlight
           underlayColor={ 'transparent' }
-          onPress={ onClickTitle }
+          onPress={ onClick }
         >
           <View style={ { alignItems: 'center' } }>
             <Text style={ styles.title }>{ title }</Text>

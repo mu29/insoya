@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     color: '#999999',
   },
   category: {
+    marginLeft: 8,
     fontSize: 12,
     color: '#999999',
   },
