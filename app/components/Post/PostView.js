@@ -6,6 +6,7 @@ import { readPost } from '../../modules/Post';
 import { showViewProgress } from '../../modules/Progress';
 import CommentItem from '../Item/CommentItem';
 import Navigation from '../Navigation';
+import CommentBar from '../CommentBar';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : 0;
 
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
     margin: 4,
     marginLeft: 12,
     marginRight: 12,
+    height: 70,
     backgroundColor: '#FFF',
   },
   statusBar: {
@@ -195,6 +197,7 @@ class PostView extends Component {
             </View>
           </View>
         </ScrollView>
+        <CommentBar />
       </View>
     );
   }

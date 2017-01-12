@@ -75,7 +75,7 @@ const MENUS = [
       { group: 'animation', title: '애니메이션', url: `${INSOYA_HOST}zboard.php?id=talkfree&category=3&divpage=8` },
     ],
   },
-  { icon: 'user', title: '정보', component: Info },
+  { icon: 'user', title: '프로필', component: Info },
 ];
 
 export default MENUS;
