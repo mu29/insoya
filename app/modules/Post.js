@@ -3,6 +3,7 @@ import { hideProgress } from './Progress';
 
 export const POST_LIST_SUCCEEDED = 'POST_LIST_SUCCEEDED';
 export const POST_SUCCEEDED = 'POST_SUCCEEDED';
+export const ADD_COMMENT = 'ADD_COMMENT';
 
 const defaultState = {
   posts: [],
@@ -27,6 +28,16 @@ export default function (state = defaultState, action) {
       return { ...state, posts };
     case POST_SUCCEEDED:
       return { ...state, post: action.post };
+    case ADD_COMMENT:
+      return {
+        ...state, post: {
+          ...state.post,
+          commentList: [
+            ...state.post.commentList,
+            { author: '나', date: '방금 전 작성함', content: `${action.content}\n` }
+          ]
+        }
+      };
     default:
       return state;
   }
@@ -83,4 +94,13 @@ export function readPost(url) {
       })
       .catch(() => dispatch(readPostFail()));
   };
+}
+
+export function addComment(content) {
+  return (dispatch) => {
+    dispatch({
+      type: ADD_COMMENT,
+      content,
+    });
+  }
 }

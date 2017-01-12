@@ -125,7 +125,7 @@ class PostView extends Component {
   }
 
   render() {
-    const { showing, post, route, navigator } = this.props;
+    const { showing, post, route, navigator, url } = this.props;
     const { showAd, imageUrl } = this.state;
     const visible = { opacity: showing ? 0 : 255 };
     return (
@@ -197,7 +197,7 @@ class PostView extends Component {
             </View>
           </View>
         </ScrollView>
-        <CommentBar />
+        <CommentBar referer={ `${BASE_URL}/${url}` }/>
       </View>
     );
   }

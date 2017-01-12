@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableHighlight, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View, Alert, Text, TextInput, TouchableHighlight, ActivityIndicator, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { createComment, clearMessage } from '../modules/Comment';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,32 +35,66 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class CommentBar extends Component {
+class CommentBar extends Component {
   constructor() {
     super();
-    this.onSelectMenu = this.onSelectMenu.bind(this);
+    this.state = {
+      content: '',
+    };
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSelectMenu(index) {
-    this.props.onSelectMenu(index);
+  componentWillReceiveProps({ message }) {
+    if (message === '정상적으로 작성되었습니다.') {
+      this.setState({ content: '' });
+    } else if (message !== '') {
+      Alert.alert(
+        '알림',
+        message,
+        [{ text: '확인', onPress: this.props.clearMessage }],
+      );
+    }
+  }
+
+  onSubmit() {
+    const { content } = this.state;
+    const { id, password, referer, createComment } = this.props;
+    createComment(id, password, referer, content);
   }
 
   render() {
-    const { menus, index } = this.props;
+    const { progress, message } = this.props;
     return (
       <View style={ styles.container }>
         <TextInput
           style={ styles.input }
+          onChangeText={ (text) => this.setState({ content: text }) }
+          value={ this.state.content }
           placeholder="댓글 쓰기..."
         />
-        <TouchableHighlight
-          underlayColor={ 'transparent' }
-        >
-          <View style={ styles.button }>
-            <Text style={ styles.buttonText }>입력</Text>
-          </View>
-        </TouchableHighlight>
+        {
+          progress &&
+          <ActivityIndicator animating={ true } style={ { marginRight: 16, padding: 8 } } size="small" color="#fa5d63"/> ||
+          <TouchableHighlight
+            underlayColor={ 'transparent' }
+            onPress={ this.onSubmit }
+          >
+            <View style={ styles.button }>
+              <Text style={ styles.buttonText }>입력</Text>
+            </View>
+          </TouchableHighlight>
+        }
       </View>
     );
   }
 }
+
+export default connect(
+  ({ Session, Comment }) => ({
+    id: Session.id,
+    password: Session.password,
+    message: Comment.message,
+    progress: Comment.progress,
+  }),
+  { createComment, clearMessage },
+)(CommentBar)
