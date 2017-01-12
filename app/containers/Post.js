@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Platform, View, StatusBar, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
 import Picker from 'react-native-picker';
 import Header from '../components/Header';
 import PostList from '../components/Post/PostList';
