@@ -65,9 +65,12 @@ export default class Post extends Component {
 
     return (
       <View style={ styles.container }>
-        <View style={ styles.statusBar }>
-          <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
-        </View>
+        { 
+          Platform.OS === 'ios' &&
+          <View style={ styles.statusBar }>
+            <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
+          </View>
+        }
         <Header title={ title } subtitle={ menus[index].title } menus={ menus } onClick={ this.onClickTitle } />
         <PostList route={ route } navigator={ navigator } { ...menus[index] } />
       </View>
