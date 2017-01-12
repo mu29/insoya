@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -27,6 +28,7 @@
 		26FE99CC33CF4D8286F4D279 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85F6CB9BAE854BB2B199D173 /* Zocial.ttf */; };
 		28D877FBCE0048DFA5B3BDFB /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3627E96E627F447693314058 /* Octicons.ttf */; };
 		2AEA4686DB511D936E7C573D /* libPods-insoyaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB47AA41E042C65B3FE575A /* libPods-insoyaTests.a */; };
+		2CBBDA0BECA048D0B1B4F81F /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C273C0314169484E8B25DDE9 /* libRCTBEEPickerManager.a */; };
 		49EA7E2C1ADE430FA94B21A8 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9357F94211644669D22A523 /* libSplashScreen.a */; };
 		5B805EF21E1B998C0099EF7E /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 5B805EF11E1B998C0099EF7E /* assets */; };
 		5B805EF61E1B9B500099EF7E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B805EF51E1B9B500099EF7E /* main.jsbundle */; };
@@ -39,7 +41,6 @@
 		C8D5785D66A4450183FECADC /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC392E609AC64A9ABF2CFCDD /* libRNVectorIcons.a */; };
 		D4ACC386CD6037C9E74476F6 /* libPods-insoya.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9E54CF9EEB7333EC13588E /* libPods-insoya.a */; };
 		FBB639B5EFF64520A433698A /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92FA55251493477185CC8EAE /* MaterialIcons.ttf */; };
-		2CBBDA0BECA048D0B1B4F81F /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C273C0314169484E8B25DDE9 /* libRCTBEEPickerManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3D7682761D8E76B80014119E;
 			remoteInfo = SplashScreen;
+		};
+		5B16B9871E272B0D00A63740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0035C877A2B74C47BCE7364F /* RCTBEEPickerManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17D41E551D7EE0CA0031415E;
+			remoteInfo = RCTBEEPickerManager;
 		};
 		5B60488F1E0148BD0077FEE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -207,6 +215,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0035C877A2B74C47BCE7364F /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTBEEPickerManager.xcodeproj; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
@@ -244,6 +253,7 @@
 		85F6CB9BAE854BB2B199D173 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		92FA55251493477185CC8EAE /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		9AFE36A175884DAC97299040 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		C273C0314169484E8B25DDE9 /* libRCTBEEPickerManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTBEEPickerManager.a; sourceTree = "<group>"; };
 		CF3F6E23BBE642188E142C09 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D1598DCF1BFB4B0EA9701BBE /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		DC392E609AC64A9ABF2CFCDD /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
@@ -251,8 +261,6 @@
 		E5F7221E890334A203B48CB2 /* Pods-insoya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insoya.debug.xcconfig"; path = "Pods/Target Support Files/Pods-insoya/Pods-insoya.debug.xcconfig"; sourceTree = "<group>"; };
 		F6B9A80E7D5245A5A0593210 /* RNAdMobManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAdMobManager.xcodeproj; path = "../node_modules/react-native-admob/ios/RNAdMobManager.xcodeproj"; sourceTree = "<group>"; };
 		F9357F94211644669D22A523 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
-		0035C877A2B74C47BCE7364F /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; name = "RCTBEEPickerManager.xcodeproj"; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		C273C0314169484E8B25DDE9 /* libRCTBEEPickerManager.a */ = {isa = PBXFileReference; name = "libRCTBEEPickerManager.a"; path = "libRCTBEEPickerManager.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +414,14 @@
 			isa = PBXGroup;
 			children = (
 				5B0CC6511E016E1E00411AD3 /* libSplashScreen.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B16B9811E272B0D00A63740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B16B9881E272B0D00A63740 /* libRCTBEEPickerManager.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -611,6 +627,10 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
+					ProductGroup = 5B16B9811E272B0D00A63740 /* Products */;
+					ProjectRef = 0035C877A2B74C47BCE7364F /* RCTBEEPickerManager.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -729,6 +749,13 @@
 			fileType = archive.ar;
 			path = libSplashScreen.a;
 			remoteRef = 5B0CC6501E016E1E00411AD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5B16B9881E272B0D00A63740 /* libRCTBEEPickerManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTBEEPickerManager.a;
+			remoteRef = 5B16B9871E272B0D00A63740 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5B6048901E0148BD0077FEE1 /* libRNAdMobManager.a */ = {

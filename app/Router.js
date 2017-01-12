@@ -1,12 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { BackAndroid, Platform, Navigator, Text, View, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
-import { selectMenu } from './modules/Menu';
-import MENUS from  './constants/Menus';
 import Home from './containers/Home';
 import PostView from './components/Post/PostView';
-import MenuBar from './components/MenuBar';
 
 const ROUTES = {
   home: Home,
@@ -19,7 +15,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class Router extends Component {
+export default class Router extends Component {
   constructor() {
     super();
     this._handlers = [];
@@ -69,7 +65,6 @@ class Router extends Component {
           initialRoute={ { name: 'home' } }
           renderScene={ this.renderScene }
         />
-        <MenuBar menus={ MENUS } onSelectMenu={ this.props.selectMenu } index={ this.props.menuIndex } />
       </View>
     );
   }
@@ -79,10 +74,3 @@ class Router extends Component {
     return <Component { ...route.passProps } route={ route } navigator={ navigator } />;
   }
 }
-
-export default connect(
-  ({ Menu }) => ({
-    menuIndex: Menu.index,
-  }),
-  { selectMenu }
-)(Router);
