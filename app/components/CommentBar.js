@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert, Text, TextInput, TouchableHighlight, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, KeyboardAvoidingView, Alert, Text, TextInput, TouchableHighlight, ActivityIndicator, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { createComment, clearMessage } from '../modules/Comment';
 
@@ -65,28 +65,30 @@ class CommentBar extends Component {
   render() {
     const { progress, message } = this.props;
     return (
-      <View style={ styles.container }>
-        <TextInput
-          style={ styles.input }
-          onChangeText={ (text) => this.setState({ content: text }) }
-          value={ this.state.content }
-          placeholder="댓글 쓰기..."
-          autoCorrect={false}
-          underlineColorAndroid="rgba(0,0,0,0)"
-        />
-        {
-          progress &&
-          <ActivityIndicator animating={ true } style={ { marginRight: 16, padding: 8 } } size="small" color="#fa5d63"/> ||
-          <TouchableHighlight
-            underlayColor={ 'transparent' }
-            onPress={ this.onSubmit }
-          >
-            <View style={ styles.button }>
-              <Text style={ styles.buttonText }>입력</Text>
-            </View>
-          </TouchableHighlight>
-        }
-      </View>
+      <KeyboardAvoidingView behavior="position">
+        <View style={ styles.container }>
+          <TextInput
+            style={ styles.input }
+            onChangeText={ (text) => this.setState({ content: text }) }
+            value={ this.state.content }
+            placeholder="댓글 쓰기..."
+            autoCorrect={false}
+            underlineColorAndroid="rgba(0,0,0,0)"
+          />
+          {
+            progress &&
+            <ActivityIndicator animating={ true } style={ { marginRight: 16, padding: 8 } } size="small" color="#fa5d63"/> ||
+            <TouchableHighlight
+              underlayColor={ 'transparent' }
+              onPress={ this.onSubmit }
+            >
+              <View style={ styles.button }>
+                <Text style={ styles.buttonText }>입력</Text>
+              </View>
+            </TouchableHighlight>
+          }
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }
