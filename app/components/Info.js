@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   input: {
-    padding: 4,
+    padding: 2,
     fontSize: 12,
     width: 160,
     height: 20,
@@ -123,6 +123,8 @@ class Info extends Component {
               style={ styles.input }
               placeholder="아이디"
               onChangeText={ (text) => this.setState({ id: text }) }
+              autoCorrect={false}
+              underlineColorAndroid="rgba(0,0,0,0)"
             />
             <View style={ styles.underline } />
             <TextInput
@@ -130,6 +132,8 @@ class Info extends Component {
               secureTextEntry= { true }
               placeholder="비밀번호"
               onChangeText={ (text) => this.setState({ password: text }) }
+              autoCorrect={false}
+              underlineColorAndroid="rgba(0,0,0,0)"
             />
             <View style={ styles.underline } />
             <TouchableHighlight

@@ -71,6 +71,8 @@ class CommentBar extends Component {
           onChangeText={ (text) => this.setState({ content: text }) }
           value={ this.state.content }
           placeholder="댓글 쓰기..."
+          autoCorrect={false}
+          underlineColorAndroid="rgba(0,0,0,0)"
         />
         {
           progress &&
