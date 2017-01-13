@@ -51,7 +51,6 @@ export function login(id, password) {
   return (dispatch) => {
     SessionApi.login(id, password)
       .then((res) => {
-        console.log(id, password, res);
         dispatch(loginSuccess(id, password));
       })
       .catch(() => dispatch(loginFail()));
