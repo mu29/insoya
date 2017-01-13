@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, KeyboardAvoidingView, Alert, Text, TextInput, TouchableHighlight, ActivityIndicator, StyleSheet } from 'react-native';
+import { Platform, View, KeyboardAvoidingView, Alert, Text, TextInput, TouchableHighlight, ActivityIndicator, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { createComment, clearMessage } from '../modules/Comment';
 
@@ -63,16 +63,16 @@ class CommentBar extends Component {
   }
 
   render() {
-    const { progress, message } = this.props;
-    return (
+    const { id, progress, message } = this.props;
+    return Platform.OS === 'ios' ? (
       <KeyboardAvoidingView behavior="position">
         <View style={ styles.container }>
           <TextInput
             style={ styles.input }
             onChangeText={ (text) => this.setState({ content: text }) }
             value={ this.state.content }
-            placeholder="댓글 쓰기..."
-            autoCorrect={false}
+            placeholder={ id === '' ? '로그인 후 이용 가능합니다.' : '댓글 쓰기...' }
+            autoCorrect={ false }
             underlineColorAndroid="rgba(0,0,0,0)"
           />
           {
@@ -89,6 +89,29 @@ class CommentBar extends Component {
           }
         </View>
       </KeyboardAvoidingView>
+    ) : (
+      <View style={ styles.container }>
+        <TextInput
+          style={ styles.input }
+          onChangeText={ (text) => this.setState({ content: text }) }
+          value={ this.state.content }
+          placeholder="댓글 쓰기..."
+          autoCorrect={ false }
+          underlineColorAndroid="rgba(0,0,0,0)"
+        />
+        {
+          progress &&
+          <ActivityIndicator animating={ true } style={ { marginRight: 16, padding: 8 } } size="small" color="#fa5d63"/> ||
+          <TouchableHighlight
+            underlayColor={ 'transparent' }
+            onPress={ this.onSubmit }
+          >
+            <View style={ styles.button }>
+              <Text style={ styles.buttonText }>입력</Text>
+            </View>
+          </TouchableHighlight>
+        }
+      </View>
     );
   }
 }

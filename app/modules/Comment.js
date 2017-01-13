@@ -17,7 +17,7 @@ export default function (state = defaultState, action) {
     case COMMENT_SUCCESS:
       return { ...state, message: '정상적으로 작성되었습니다.' };
     case COMMENT_FAIL:
-      return { ...state, message: '댓글 작성에 실패했습니다.\n로그인 정보를 확인해주세요.' };
+      return { ...state, message: '댓글 작성에 실패했습니다.\n로그인 정보 혹은 인소야 규정을 확인해주세요.' };
     case SHOW_COMMENT_PROGRESS:
       return { ...state, progress: true };
     case HIDE_COMMENT_PROGRESS:
