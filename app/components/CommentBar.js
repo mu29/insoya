@@ -72,6 +72,7 @@ class CommentBar extends Component {
             onChangeText={ (text) => this.setState({ content: text }) }
             value={ this.state.content }
             placeholder={ id === '' ? '로그인 후 이용 가능합니다.' : '댓글 쓰기...' }
+            editable={ id !== '' }
             autoCorrect={ false }
             underlineColorAndroid="rgba(0,0,0,0)"
           />
