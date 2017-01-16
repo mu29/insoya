@@ -2,7 +2,6 @@ import RestClient from '../helpers/RestClient';
 
 export default class CommentApi {
   static createComment(id, password, referer, content) {
-    console.log(id, password, referer,  content);
     return RestClient.instance.send({
       url: '/comment',
       data: {

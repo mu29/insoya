@@ -90,7 +90,7 @@ android {
         applicationId "mu29.insoya"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 8
+        versionCode 9
         versionName "1.2.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
