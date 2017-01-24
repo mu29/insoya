@@ -2,8 +2,8 @@
 메이플스토리 커뮤니티 사이트 인소야의 모바일 버전입니다.
 
 ## Screenshot
-![](https://github.com/mu29/lego-tv/blob/master/image1.png?raw=true)
-![](https://github.com/mu29/lego-tv/blob/master/image2.png?raw=true)
+![](https://github.com/mu29/insoya/blob/master/image1.jpg?raw=true =200x)
+![](https://github.com/mu29/insoya/blob/master/image2.jpg?raw=true =200x)
 
 ### TODO
 - [x] 이미지 로드하기
