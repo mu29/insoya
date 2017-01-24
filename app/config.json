@@ -1,6 +1,6 @@
 {
   "development": {
-    "api_entry": "https://27r6gr76v9.execute-api.ap-northeast-2.amazonaws.com/test",
+    "api_entry": "https://insoya.azurewebsites.net/api",
     "insoya_host": "http://insoya.com/bbs/",
   },
   "staging": {
@@ -8,7 +8,7 @@
     "insoya_host": "http://insoya.com/bbs/",
   },
   "production": {
-    "api_entry": "https://27r6gr76v9.execute-api.ap-northeast-2.amazonaws.com/test",
+    "api_entry": "https://insoya.azurewebsites.net/api",
     "insoya_host": "http://insoya.com/bbs/",
   },
   "test": {

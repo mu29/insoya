@@ -14,7 +14,6 @@ export default class RestClient {
     this.headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'x-api-key': 'fzFp45PI8oaTdF3BpE1Wq1VRInbxKbHv4x4BvQzf',
     };
     this.checkStatus = this.checkStatus.bind(this);
     this.parseJSON = this.parseJSON.bind(this);
@@ -25,6 +24,7 @@ export default class RestClient {
   }
 
   send({ url, data, success, error }) {
+    data.queryParams = Object.assign({}, data.queryParams, { code: 'g5qOToW84q21jF0SI24aEiVvYmQ8tagOH1fZPGdc2kIa4N/nH0JXRQ==' })
     if (data.queryParams) {
       url += (url.indexOf('?') === -1 ? '?' : '&') + this.queryParams(data.queryParams);
       delete data.queryParams;
