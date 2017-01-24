@@ -1,4 +1,9 @@
 # insoya
+메이플스토리 커뮤니티 사이트 인소야의 모바일 버전입니다.
+
+## Screenshot
+![](https://github.com/mu29/lego-tv/blob/master/image1.png?raw=true)
+![](https://github.com/mu29/lego-tv/blob/master/image2.png?raw=true)
 
 ### TODO
 - [x] 이미지 로드하기
@@ -12,3 +17,6 @@
 - [x] 댓글 Html entities 처리하기
 - [x] 코드 정리
 - [ ] 동영상 메뉴
+
+## Contact
+mu29(InJung Chung) : mu29@yeoubi.net
